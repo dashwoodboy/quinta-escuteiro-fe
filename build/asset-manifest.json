@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.405e7538.css",
+    "main.js": "/static/js/main.eda8316c.js",
+    "static/media/logo_regiao.png": "/static/media/logo_regiao.34de9b700d9044496751.png",
+    "index.html": "/index.html",
+    "main.405e7538.css.map": "/static/css/main.405e7538.css.map",
+    "main.eda8316c.js.map": "/static/js/main.eda8316c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.405e7538.css",
+    "static/js/main.eda8316c.js"
+  ]
+}
