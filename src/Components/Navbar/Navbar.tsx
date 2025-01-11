@@ -92,6 +92,16 @@ export function Navbar() {
                 >
                     <AnimatedText text={t("home")} activeAnimation={returnFromSide === AnimationState.MOVING} inverse={true} key="Início" />
                 </NavLink>
+                <NavLink
+                  to={ROUTER_APP_PATHS.ACTIVITIES}
+                  className={({ isActive }) =>
+                    `md:mx-4 font-bold text-2xl md:text-base py-4 ${
+                      isActive ? "text-white" : "text-white hover:text-secondary"
+                    }`
+                  }
+                >
+                    <AnimatedText text={t("activities")} activeAnimation={returnFromSide === AnimationState.MOVING} inverse={true} key="Atividade" />
+                </NavLink>
             </div>
         );
     };

@@ -35,17 +35,17 @@ export function Scouts(
                 <Input
                     label={t("region")}
                     size={InputSizes.LARGE}
-                    value={inputValues.regionNumber}
+                    value={inputValues.regionName}
                     onChange={
-                        (value: string) => setInputValues(prev => ({...prev, regionNumber: value}))
+                        (value: string) => setInputValues(prev => ({...prev, regionName: value}))
                     }
                 />
                 <Input
                     label={t("core")}
                     size={InputSizes.LARGE}
-                    value={inputValues.coreNumber}
+                    value={inputValues.coreName}
                     onChange={
-                        (value: string) => setInputValues(prev => ({...prev, coreNumber: value}))
+                        (value: string) => setInputValues(prev => ({...prev, coreName: value}))
                     }
                 />
                 <Dropdown
@@ -125,9 +125,9 @@ export function Scouts(
                     label={t("number_scout_leaders")}
                     size={InputSizes.SMALL}
                     type="number"
-                    value={inputValues.numberDirigentes}
+                    value={inputValues.numberChiefs}
                     onChange={
-                        (value: string) => setInputValues(prev => ({...prev, numberDirigentes: value}))
+                        (value: string) => setInputValues(prev => ({...prev, numberChiefs: value}))
                     }
                 />
                 <SleepInfo

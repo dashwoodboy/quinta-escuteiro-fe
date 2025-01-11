@@ -5,7 +5,6 @@ export enum Colors {
     CAMINHEIROS,
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Colors {
     export function text(color: Colors): string {
         switch (color) {

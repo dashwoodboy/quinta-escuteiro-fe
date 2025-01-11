@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../Constants/Routes";
 import {Colors} from "../Models/Colors";
 import {Reservation} from "../Pages/Reservation/Reservation";
+import {Activities} from "../Pages/Activities/Activities";
 
 export const ColorContext = createContext<Colors>(Colors.LOBITOS);
 
@@ -19,6 +20,10 @@ function AppRouter() {
                         <Route
                             path={ROUTER_APP_PATHS.ROOT}
                             element={<Home />}
+                        />
+                        <Route
+                          path={ROUTER_APP_PATHS.ACTIVITIES}
+                          element={<Activities />}
                         />
                         <Route
                             path={ROUTER_APP_PATHS.RESERVATION}

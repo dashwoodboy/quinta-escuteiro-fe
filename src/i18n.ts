@@ -50,6 +50,7 @@ i18n.use(initReactI18next).init({
                 desired_infrastructures: "Desire Infrastructures",
                 activities_desired: "Activities Desired",
                 activities_outside: "Activities Outside Camp",
+                activities: "Activities",
                 select_multiple: "Select the desired",
                 select: "Select",
                 scouts: "Scouts",
@@ -77,7 +78,8 @@ i18n.use(initReactI18next).init({
                 non_portuguese_group: "Group not portuguese",
                 camping: "Camping",
                 cantonment: "Cantonment",
-                no_overnight: "No overnight stay"
+                no_overnight: "No overnight stay",
+                about_activity: "About the activity"
             },
         },
         pt: {
@@ -122,6 +124,7 @@ i18n.use(initReactI18next).init({
                 desired_infrastructures: "Infraestruturas a Utilizar",
                 activities_desired: "Atividades em Campo",
                 activities_outside: "Atividade Fora de Campo",
+                activities: "Atividades",
                 select_multiple: "Escolha as desejadas",
                 select: "Selecionar",
                 scouts: "Escuteiros",
@@ -149,7 +152,8 @@ i18n.use(initReactI18next).init({
                 non_portuguese_group: "Agrupamento não português",
                 camping: "Acampamento",
                 cantonment: "Acantonamento",
-                no_overnight: "Sem Pernoita"
+                no_overnight: "Sem Pernoita",
+                about_activity: "Sobre a atividade"
             },
         },
     },

@@ -50,32 +50,27 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-.scrollbar {
-    overflow-y: scroll;
-    scrollbar-color: grey transparent;
-    scrollbar-width: thin;
+
+.scrollbar::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+
 }
 
-.scrollbar::-webkit-scrollbar-track
-{
-
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    background-color: transparent;
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #ffffff;
+    margin-bottom: 8px;
 }
 
-.scrollbar::-webkit-scrollbar
-{
-    cursor: pointer;
-    width: 6px;
-    background-color: #F5F5F5;
+.scrollbar::-webkit-scrollbar-thumb {
+    background: #0D6054;
+    border-radius: 100vh;
+    border: 4px solid #f6f7ed;
 }
 
-.scrollbar::-webkit-scrollbar-thumb
-{
-    box-shadow: inset 0 0 5px rgba(0,0,0,.3);
-    background-color: grey;
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #0D6054;
 }
-
 
 

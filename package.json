@@ -12,6 +12,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@tanstack/react-query": "^5.63.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -21,12 +22,14 @@
     "@types/react-dom": "^18.2.6",
     "@types/react-icons": "^2.2.7",
     "i18next": "^23.16.3",
+    "minio": "^8.0.3",
+    "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^15.1.0",
     "react-icons": "^5.3.0",
     "react-router-dom": "^6.22.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
     "usehooks-ts": "^3.0.1",
     "web-vitals": "^2.1.4"
@@ -55,9 +58,19 @@
     ]
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin-ts": "^1.7.0",
-    "pre-commit": "^1.2.2",
+    "@types/minio": "^7.1.0",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "pre-commit": "^1.0.10",
     "prettier": "3.2.5",
-    "tailwindcss": "^3.4.1"
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "tailwindcss": "^3.4.1",
+    "url": "^0.11.4"
   }
 }
