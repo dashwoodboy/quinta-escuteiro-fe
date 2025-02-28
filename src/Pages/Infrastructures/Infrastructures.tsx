@@ -51,14 +51,14 @@ export function Infrastructures() {
 
   return (
     <div className=" w-full  bg-primary flex">
-      <div className="w-1/2 h-full flex flex-col">
+      <div className="lg:w-1/2 w-full h-full flex pr-4 flex-col">
         <h1 className="font-extrabold text-white text-3xl pl-8 py-6">{t('infrastructures')}</h1>
-        <div className="w-full h-full pb-8 px-8 space-y-8 overflow-y-auto scrollbar">
+        <div className="w-full h-full pb-8 pl-8 pr-4 space-y-8 overflow-y-auto scrollbar">
           {content()}
         </div>
       </div>
 
-      <div className="w-1/2">
+      <div className="w-1/2 lg:block hidden">
         <ImageCdn imageName={"host/infrastructure_create.jpg"} className="h-full w-full text-white"/>
       </div>
     </div>

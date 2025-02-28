@@ -47,7 +47,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, country: value}))
                     }
-                    error={inputValues.country}
+                    error={errors?.country}
                 />
                 <Input
                     label={t("address")}
@@ -57,7 +57,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, country: value}))
                     }
-                    error={inputValues.address}
+                    error={errors?.address}
                 />
                 <Input
                     label={t("place")}
@@ -66,7 +66,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, city: value}))
                     }
-                    error={inputValues.city}
+                    error={errors?.city}
                 />
                 <Input
                     label={t("zipCode")}
@@ -76,7 +76,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, postalCode: value}))
                     }
-                    error={inputValues.postalCode}
+                    error={errors?.postalCode}
                 />
                 {!disabled &&
                   <Input
@@ -86,7 +86,7 @@ export function CatholicStructures(
                       onChange={
                         (value: string) => setInputValues(prev => ({...prev, nif: value}))
                       }
-                      error={inputValues.nif}
+                      error={errors?.nif}
                   />
                 }
                 <Input
@@ -98,7 +98,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, numberPersons: value}))
                     }
-                    error={inputValues.numberPersons}
+                    error={errors?.numberPersons}
                 />
                 <Input
                     label={t("number_participants")}
@@ -109,7 +109,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, numberParticipants: value}))
                     }
-                    error={inputValues.numberParticipants}
+                    error={errors?.numberParticipants}
                 />
                 <Input
                     label={t("number_leaders")}
@@ -120,7 +120,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, numberTeachers: value}))
                     }
-                    error={inputValues.numberTeachers}
+                    error={errors?.numberTeachers}
                 />
                 <Input
                     label={t("age_range")}
@@ -130,7 +130,7 @@ export function CatholicStructures(
                     onChange={
                         (value: string) => setInputValues(prev => ({...prev, ageInterval: value}))
                     }
-                    error={inputValues.ageInterval}
+                    error={errors?.ageInterval}
                 />
                 <SleepInfo
                     inputValues={inputValues}

@@ -19,13 +19,13 @@ const sizeChosen = (size: InputSizes) => {
         case InputSizes.FULL:
             return "w-full";
         case InputSizes.XLARGE:
-            return "w-96";
+            return "lg:w-96 w-full";
         case InputSizes.LARGE:
-            return "w-80";
+            return "lg: w-80 w-full";
         case InputSizes.DEFAULT:
-            return "w-60";
+            return "lg:w-60 w-full";
         case InputSizes.SMALL:
-            return "w-44";
+            return "lg:w-44 w-full";
     }
 };
 

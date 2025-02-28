@@ -46,7 +46,7 @@ export function ReservationInputs({ readonly, initialData }: ReservationInputsPr
     numberPioneiros: yup.number(),
     numberCaminheiros: yup.number(),
     numberNoScouts: yup.number(),
-    numberChiefs: yup.number(),
+    numberChiefs: yup.string(),
     sleepType: yup.string().required("required"),
     arriveTime: yup.string()
       .required('required')
@@ -301,15 +301,15 @@ export function ReservationInputs({ readonly, initialData }: ReservationInputsPr
               }
             />
             { !readonly &&
-              <div className="flex px-4 gap-x-8 mt-10 pb-8">
+              <div className="flex lg:flex-row flex-col px-4 gap-x-8 lg:gap-y-0 gap-y-4 mt-10 pb-8">
                 <button
-                  className="bg-gray-300 w-1/2 py-2 hover:bg-red-400 rounded-lg drop-shadow-lg text-primary font-bold hover:text-white"
+                  className="bg-gray-300 lg:w-1/2 w-full py-2 hover:bg-red-400 rounded-lg drop-shadow-lg text-primary font-bold hover:text-white"
                   onClick={() => navigate(ROUTER_APP_PATHS.ROOT)}
                 >
                   {t("cancel")}
                 </button>
                 <button
-                  className="bg-primary w-1/2 py-2  rounded-lg drop-shadow-lg text-white hover:text-primary font-bold hover:bg-gray-300"
+                  className="bg-primary lg:w-1/2 w-full py-2  rounded-lg drop-shadow-lg text-white hover:text-primary font-bold hover:bg-gray-300"
                   onClick={validateAndAddReservation}
                 >
                   {t("reserve")}
