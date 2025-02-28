@@ -1,14 +1,21 @@
 import React from "react";
-import {activities, activitiesOutside, infrastructures} from "./Utils";
 import Dropdown from "../../Components/Dropdown/Dropdown";
 import {ReservationInput} from "../../Models/ReservationInput";
 import {InputSizes} from "../../Components/utils/InputSizes";
 import {MultiSelection} from "../../Components/MultiSelection";
 import {useTranslation} from "react-i18next";
 
+interface OnSiteProps {
+  inputValues: ReservationInput,
+  setInputValues:  React.Dispatch<React.SetStateAction<ReservationInput>>,
+  infrastructures: {id: string, name: string}[],
+  activities: {id: string, name: string}[],
+  activitiesOutside: {id: string, name: string}[],
+  disabled?: boolean
+}
+
 export function OnSite(
-    {inputValues, setInputValues}:
-    {inputValues: ReservationInput, setInputValues:  React.Dispatch<React.SetStateAction<ReservationInput>>}
+  {inputValues, setInputValues, infrastructures, activities, activitiesOutside, disabled}: OnSiteProps
 ) {
 
     const { t } = useTranslation();
@@ -22,6 +29,7 @@ export function OnSite(
                     title={t("desired_infrastructures")}
                     selected={inputValues.infrastructuresIds}
                     data={infrastructures}
+                    disabled={disabled}
                     onChange={(items) => {
                         setInputValues(prev => ({...prev, infrastructuresIds: items}));
                     }}
@@ -31,6 +39,7 @@ export function OnSite(
                     title={t("activities_desired")}
                     data={activities}
                     selected={inputValues.activitiesIds}
+                    disabled={disabled}
                     onChange={(items) => {
                         setInputValues(prev => ({...prev, activitiesIds: items}));
                     }}
@@ -40,6 +49,7 @@ export function OnSite(
                     title={t("activities_outside")}
                     data={activitiesOutside}
                     selected={inputValues.activitiesOutsideIds}
+                    disabled={disabled}
                     onChange={(items) => {
                         setInputValues(prev => ({...prev, activitiesOutsideIds: items}));
                     }}

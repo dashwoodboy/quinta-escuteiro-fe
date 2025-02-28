@@ -18,6 +18,10 @@ interface DropdownProps {
     selectedId?: string;
     label: string;
     translate?: boolean;
+    required?: boolean;
+    error?: string;
+    labelColor?: string;
+    disabled?: boolean;
     onSelect?: (id: string) => void;
 }
 
@@ -28,6 +32,10 @@ const Dropdown = ({
     selectedId,
     label,
     translate = true,
+    required = false,
+    error,
+    labelColor,
+    disabled = false,
     onSelect,
 }: DropdownProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -75,20 +83,23 @@ const Dropdown = ({
 
     return (
         <div ref={dropdownRef} className={`relative ${sizeChosen(size)}`}>
-            <label className=" font-robot text-gray-600 font-medium ">{label}</label>
+            <label className={`font-robot font-medium ${labelColor? labelColor : 'text-gray-600'}`}>{label} {required && "*"}</label>
             <button
                 id={id}
                 aria-label='Toggle dropdown'
                 aria-haspopup='true'
                 aria-expanded={isOpen}
                 type='button'
+                disabled={disabled}
                 onClick={() => setIsOpen(!isOpen)}
                 className="mt-1 flex justify-between items-center gap-5 rounded-lg w-full h-10 px-4 border border-gray-300 bg-gray-200"
             >
                 <span>{(translate? t(selectedItem?.name ?? "") :  selectedItem?.name)|| t("select")}</span>
-                <GoChevronDown
+                { !disabled &&
+                    <GoChevronDown
                     size={20}
-                />
+                    />
+                }
             </button>
             {/* Open */}
             {isOpen && (
@@ -114,6 +125,7 @@ const Dropdown = ({
                     </ul>
                 </div>
             )}
+            {error && <label className="font-robot text-red-500 font-medium ">{t(error)}</label>}
         </div>
     );
 };

@@ -3,5 +3,6 @@ export enum InputSizes  {
     DEFAULT,
     LARGE,
     XLARGE,
-    FULL
+    FULL,
+    AREA
 }

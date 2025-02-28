@@ -48,5 +48,6 @@ export const activitiesOutside = [
     {id: "1", name: "rappel"},
     {id: "2", name: "caving"},
     {id: "3", name: "Surf"},
-
 ];
+
+

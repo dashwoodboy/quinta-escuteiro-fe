@@ -2,7 +2,7 @@ export interface ReservationInput {
     responsibleName: string,
     responsiblePhone: string,
     responsibleEmail: string,
-    typeReservationId?: string,
+    typeReservationId: string,
     groupNumber: string,
     regionName: string,
     coreName: string,

@@ -1,6 +1,19 @@
 export const ROUTER_APP_PATHS = {
     ROOT: "/",
+    LOGIN: "/login",
     ACTIVITIES: "/activities",
+    ACTIVITY: "/activities/:id",
     RESERVATION: "/reservation",
+    RESERVATIONSTATE: "/reservation/:id",
+    INFRASTRUCTURES: "/infrastructures",
+    CONFIGURATION: "/configuration",
+    RESERVATIONIST: "/configuration/reservations",
+    RESERVATIONREVIEW: "/configuration/reservations/:id",
+    ACTIVITIESLIST: "/configuration/activities",
+    ACTIVITIESVIEW: "/configuration/activities/:id",
+    ACTIVITIESCREATE: "/configuration/activities/create",
+    INFRASTRUCTURESLIST: "/configuration/infrastructures",
+    INFRASTRUCTURESVIEW: "/configuration/infrastructures/:id",
+    INFRASTRUCTURESCREATE: "/configuration/infrastructures/create",
 };
 

@@ -73,4 +73,12 @@
     background: #0D6054;
 }
 
+input[type=file]::file-selector-button {
+    border: 0px #000000;
+    border-radius: 8px;
+    background-color: #0D6054;
+    color: #ffffff;
+    font-size: medium;
+    font-weight: bold;
+}
 

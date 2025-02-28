@@ -13,6 +13,7 @@ interface MultisectionProps {
     data: MultisectionItem[],
     selected?: string[],
     translate?: boolean,
+    disabled?: boolean,
     onChange: (ids: string[]) => void
 }
 
@@ -22,6 +23,7 @@ export function MultiSelection({
     data,
     selected = [],
     translate = true,
+    disabled = false,
     onChange
 }: MultisectionProps) {
 
@@ -50,9 +52,9 @@ export function MultiSelection({
                     <div
                         key={item.id}
                         className={
-                            `rounded-lg h-11 mb-2 flex items-center cursor-pointer bg-gray-300 hover:bg-primary hover:text-white px-3 border-b border-gray-400 border-opacity-50 ${selectedItems.find(selected => selected === item.id)? "bg-primary text-white": ""}`
+                            `rounded-lg h-11 mb-2 flex items-center bg-gray-300 ${disabled? '': 'hover:bg-primary hover:text-white cursor-pointer'} px-3 border-b border-gray-400 border-opacity-50 ${selectedItems.find(selected => selected === item.id)? "bg-primary text-white": ""}`
                         }
-                        onClick={() => handleChange(item.id)}
+                        onClick={() => !disabled && handleChange(item.id)}
                     >
                         {translate? t(item.name) : item.name}
                     </div>

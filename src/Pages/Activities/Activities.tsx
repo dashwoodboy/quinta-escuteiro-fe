@@ -6,75 +6,16 @@ import {Activity} from "../../Models/Activity";
 import { ActivityCard } from "./Avtivity/ActivityCard";
 import {useQuery} from "@tanstack/react-query";
 import {ApiEndpoints} from "../../Constants/ApiEndpoints";
-import * as Minio from 'minio'
+import {useTranslation} from "react-i18next";
+import {ROUTER_APP_PATHS} from "../../Constants/Routes";
+import {useNavigate} from "react-router-dom";
+import {Loading} from "../../Components/Loading/Loading";
 
-const dataMock: Activity[] = [
-  {
-    "activityId": "08dd25a3-a2b2-4013-8c89-4d9cdc64a4d6",
-    "titlePt": "Teste Atividade",
-    "titleEn": "Test Activity",
-    "messagePt": "Isto e uma atividade de teste",
-    "messageEn": "This is a test activity",
-    "outside": true,
-    "icon": "sdadsaljdslkajdlksjlda"
-  },
-  {
-    "activityId": "08dd25a3-a2b2-4013-8c89-4d9cdc64a4d6",
-    "titlePt": "Teste Atividade",
-    "titleEn": "Test Activity",
-    "messagePt": "Isto e uma atividade de teste",
-    "messageEn": "This is a test activity",
-    "outside": true,
-    "icon": "sdadsaljdslkajdlksjlda"
-  },
-  {
-    "activityId": "08dd25a3-a2b2-4013-8c89-4d9cdc64a4d6",
-    "titlePt": "Teste Atividade",
-    "titleEn": "Test Activity",
-    "messagePt": "Isto e uma atividade de teste",
-    "messageEn": "This is a test activity",
-    "outside": true,
-    "icon": "sdadsaljdslkajdlksjlda"
-  },
-  {
-    "activityId": "08dd25a3-a2b2-4013-8c89-4d9cdc64a4d6",
-    "titlePt": "Teste Atividade",
-    "titleEn": "Test Activity",
-    "messagePt": "Isto e uma atividade de teste",
-    "messageEn": "This is a test activity",
-    "outside": true,
-    "icon": "sdadsaljdslkajdlksjlda"
-  }
-]
 
 export function Activities() {
 
-  const s3Client = new Minio.Client({
-    endPoint: 'https://192.168.1.113:9002',
-    port: 9002,
-    useSSL: true,
-    accessKey: 'vwAJ9av929x9jsiUzusC',
-    secretKey: '5PhDyXkFP3WDLokgbnN3rQ4h62ZchRWIEmeSqCvX',
-  })
-
-  const presignedUrl = s3Client.presignedUrl('GET', 'quintaescuteiro', 'torre.jpg')
-  presignedUrl.then(it => console.log(it))
-
-
-  const [imageUrl, setImageUrl] = useState<string>("");
-
-  useEffect(() => {
-    const fetchImage = async () => {
-      try {
-        const url = "sdsds"
-        setImageUrl(url);
-      } catch (error) {
-        console.error("Error fetching image:", error);
-      }
-    };
-
-    fetchImage();
-  }, []);
+  const { t } = useTranslation()
+  const navigate = useNavigate()
 
   const { isPending, error, data } = useQuery<Activity[]>({
     queryKey: ['activities'],
@@ -87,12 +28,22 @@ export function Activities() {
   const content = () => {
     if (isPending) {
       return (
-        <div>
-          <p>Loading</p>
+        <div className="w-full h-full flex justify-center items-center">
+          <Loading color="#0D6054"/>
         </div>
       )
     } else if (error) {
-      console.log(error)
+      return (
+        <div className="w-full h-full flex justify-center items-center flex-col gap-y-8">
+          <p className="font-bold text-primary">{t("error_loading_activity")}</p>
+          <button
+            className="bg-gray-300 w-1/2 py-2 hover:bg-red-400 rounded-lg drop-shadow-lg text-primary font-bold hover:text-white"
+            onClick={() => navigate(ROUTER_APP_PATHS.ROOT)}
+          >
+            {t("return")}
+          </button>
+        </div>
+      )
     } else {
       return data.map(activity => (
         <ActivityCard activity={activity}/>
@@ -102,15 +53,15 @@ export function Activities() {
 
   return (
     <div className=" w-full  bg-primary flex">
-      <div className="w-1/2 h-full flex flex-col">
-        <h1 className="font-extrabold text-white text-3xl pl-8 py-6">Atividades</h1>
-        <div className="w-full h-full pb-8 px-8 space-y-8 overflow-y-auto scrollbar">
+      <div className="lg:w-1/2 w-full h-full flex pr-4 flex-col">
+        <h1 className="font-extrabold text-white text-3xl pl-8 py-6">{t('activities')}</h1>
+        <div className="w-full h-full pb-8 pl-8 pr-4 space-y-8 overflow-y-auto scrollbar">
           {content()}
         </div>
       </div>
 
-      <div className="w-1/2">
-        <img src="https://daplstorage.zapto.org:9002/quintaescuteiro/torre.jpg" alt="activities"/>
+      <div className="w-1/2 lg:block hidden">
+        <img src="https://daplstorage.zapto.org:9002/api/v1/buckets/quintaescuteiro/objects/download?preview=true&prefix=torre.jpg&version_id=null" alt="activities"/>
       </div>
     </div>
   );
