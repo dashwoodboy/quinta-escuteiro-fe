@@ -1,23 +1,10 @@
 import * as yup from "yup";
 import React, {useEffect, useState} from "react";
-import {ReservationInput} from "../../../Models/ReservationInput";
-import {createReservation} from "../../../Services/ReservationService";
 import {ValidationError} from "yup";
-import {getCdnImage} from "../../../Services/ImagesService";
-import {IMAGES_ID} from "../../../Constants/ImagesIds";
 import {useTranslation} from "react-i18next";
-import {Scouts} from "../../Reservation/Options/Scouts";
-import {CatholicStructures} from "../../Reservation/Options/CatholicStructures";
 import {Input} from "../../../Components/Input/Input";
 import {InputSizes} from "../../../Components/utils/InputSizes";
-import Dropdown from "../../../Components/Dropdown/Dropdown";
-import {reservationsOptions} from "../../Reservation/Utils";
-import {OnSite} from "../../Reservation/OnSite";
-import {AdvancedImage} from "@cloudinary/react";
-import {ActivityInput} from "../../../Models/ActivityInput";
 import {ImageCdn} from "../../../Components/ImageCdn/ImageCdn";
-import {Switch} from "../../../Components/Input/Switch";
-import {createActivity} from "../../../Services/ActivityService";
 import {FileInput} from "../../../Components/Input/FileInput";
 import {Loading} from "../../../Components/Loading/Loading";
 import {useNavigate} from "react-router-dom";
@@ -53,7 +40,7 @@ export function InfrastructureCreate() {
     if (Object.keys(errors).length !== 0) {
       setErrors({})
     }
-  }, [inputValues]);
+  }, [inputValues, errors]);
 
   const validateAndAddInfrastructure = async () => {
     setErrors({})

@@ -2,14 +2,8 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
-import {Activity} from "../../../Models/Activity";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
-import {ReservationListItem} from "../../../Models/ReservationListItem";
 import {Loading} from "../../../Components/Loading/Loading";
-import {reservationsOptions} from "../../Reservation/Utils";
-import dayjs from "dayjs";
-import Dropdown from "../../../Components/Dropdown/Dropdown";
-import {reservationStates} from "../../../Constants/ReservationStates";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {Infrastructure} from "../../../Models/Infrastructure";
 

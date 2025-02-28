@@ -8,7 +8,6 @@ import {useMediaQuery} from "usehooks-ts";
 import {BackIcon} from "../Icons/BackIcon/BackIcon";
 import AnimatedText from "../AnimatedText/AnimatedText";
 import {useTranslation} from "react-i18next";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {GlobeIcon} from "../Icons/Globe/GlobeIcon";
 import {UserIcon} from "../Icons/UserIcon/UserIcon";
 import {useUser} from "../../Providers/UserProvider";
@@ -60,25 +59,25 @@ export function Navbar() {
             return;
         }
 
-        if (isEnabled && optionsDisplaying != Options.DEFAULT && returnFromSide === AnimationState.IDLE) {
+        if (isEnabled && optionsDisplaying !== Options.DEFAULT && returnFromSide === AnimationState.IDLE) {
             setReturnFromSide(AnimationState.MOVING);
             return;
         }
 
-        if (isEnabled && optionsDisplaying == Options.DEFAULT && returnFromSide === AnimationState.STOPPED) {
+        if (isEnabled && optionsDisplaying === Options.DEFAULT && returnFromSide === AnimationState.STOPPED) {
             setReturnFromSide(AnimationState.MOVING);
             return;
         }
 
-        if (!isEnabled && optionsDisplaying != Options.DEFAULT && returnFromSide == AnimationState.MOVING) {
+        if (!isEnabled && optionsDisplaying !== Options.DEFAULT && returnFromSide === AnimationState.MOVING) {
             setReturnFromSide(AnimationState.STOPPED);
         }
 
-        if (!isEnabled && optionsDisplaying == Options.DEFAULT && returnFromSide == AnimationState.MOVING) {
+        if (!isEnabled && optionsDisplaying === Options.DEFAULT && returnFromSide === AnimationState.MOVING) {
             setReturnFromSide(AnimationState.IDLE);
         }
 
-    }, [optionsDisplaying,isEnabled]);
+    }, [optionsDisplaying, isEnabled, returnFromSide]);
 
     const onLogoClick = () => {
         navigate(ROUTER_APP_PATHS.ROOT);

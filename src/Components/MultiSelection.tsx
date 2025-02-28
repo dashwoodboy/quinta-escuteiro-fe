@@ -32,7 +32,7 @@ export function MultiSelection({
 
     useEffect(() => {
         onChange(selectedItems);
-    }, [selectedItems]);
+    }, [selectedItems, onChange]);
 
     const handleChange = (item: string) => {
         setSelectedItems(prev => {

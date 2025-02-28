@@ -2,7 +2,7 @@ import React from "react"
 import {useTranslation} from "react-i18next";
 import {faPenToSquare, faPersonWalking, faHouse} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {getAuth, signOut} from "firebase/auth"
+import {getAuth} from "firebase/auth"
 import {Link, useNavigate} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../../Constants/Routes";
 

@@ -1,7 +1,5 @@
 import React from "react";
-import Dropdown from "../../Components/Dropdown/Dropdown";
 import {ReservationInput} from "../../Models/ReservationInput";
-import {InputSizes} from "../../Components/utils/InputSizes";
 import {MultiSelection} from "../../Components/MultiSelection";
 import {useTranslation} from "react-i18next";
 

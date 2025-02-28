@@ -3,7 +3,7 @@ import Dropdown from "../../../Components/Dropdown/Dropdown";
 import React from "react";
 import {ReservationInput} from "../../../Models/ReservationInput";
 import { Input } from "../../../Components/Input/Input";
-import {associationType, scoutsGroupType, sleepType } from "../Utils";
+import {associationType, scoutsGroupType } from "../Utils";
 import {SleepInfo} from "./SleepInfo";
 import {useTranslation} from "react-i18next";
 

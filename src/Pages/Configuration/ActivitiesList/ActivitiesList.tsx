@@ -6,9 +6,6 @@ import {useQuery} from "@tanstack/react-query";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
 import {Activity} from "../../../Models/Activity";
 import {useNavigate} from "react-router-dom";
-import {title} from "process";
-import {reservationStates} from "../../../Constants/ReservationStates";
-import Dropdown from "../../../Components/Dropdown/Dropdown";
 
 export function ActivitiesList() {
 

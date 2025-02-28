@@ -1,11 +1,7 @@
-import React, {useEffect} from "react";
-import {AdvancedImage} from "@cloudinary/react";
-import {getCdnImage} from "../../../Services/ImagesService";
+import React from "react";
 import {Activity} from "../../../Models/Activity";
 import {useTranslation} from "react-i18next";
-import AWS from 'aws-sdk';
 import {ImageCdn} from "../../../Components/ImageCdn/ImageCdn";
-import {S3CONSTANTS} from "../../../Constants/S3Constants";
 import {getActivityImageId} from "../../../Services/ActivityService";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
@@ -18,7 +14,7 @@ export function ActivityCard(activityProps: ActivityCardProps) {
 
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
-  const {activityId, titlePt, titleEn, smallMessagePt, smallMessageEn, messageEn, messagePt, outside, icon} = activityProps.activity
+  const {activityId, titlePt, titleEn, smallMessagePt, smallMessageEn} = activityProps.activity
 
   return (
     <div

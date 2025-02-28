@@ -126,14 +126,14 @@ export function ReservationInputs({ readonly, initialData }: ReservationInputsPr
     if (Object.keys(errors).length !== 0) {
       setErrors({})
     }
-  }, [inputValues]);
+  }, [inputValues, errors]);
 
   const validateAndAddReservation = async () => {
     setErrors({})
     try {
       await inputValidationSchema.validate(inputValues, {abortEarly: false})
 
-      const data = await createReservation(inputValues)
+      await createReservation(inputValues)
 
       navigate(ROUTER_APP_PATHS.RESERVATIONSTATE)
     } catch (e: any) {

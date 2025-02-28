@@ -1,6 +1,5 @@
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import {Infrastructure} from "../../Models/Infrastructure";
 import {ApiEndpoints} from "../../Constants/ApiEndpoints";
 import {Activity} from "../../Models/Activity";
 import {ImageCdn} from "../../Components/ImageCdn/ImageCdn";

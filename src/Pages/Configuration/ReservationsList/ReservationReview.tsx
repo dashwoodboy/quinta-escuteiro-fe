@@ -1,12 +1,8 @@
-import Dropdown from "../../../Components/Dropdown/Dropdown";
-import {reservationStates} from "../../../Constants/ReservationStates";
 import React from "react";
-import {useMutation, useQuery, useQueryClient} from "@tanstack/react-query";
-import {ReservationListItem} from "../../../Models/ReservationListItem";
+import {useQuery} from "@tanstack/react-query";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
 import {useParams} from "react-router-dom";
 import {Loading} from "../../../Components/Loading/Loading";
-import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {reservationsOptions, sleepType} from "../../Reservation/Utils";
 import dayjs from "dayjs";
 import {useTranslation} from "react-i18next";
@@ -252,7 +248,7 @@ export function ReservationReview() {
                 data.sleepType
                 && <div className="w-1/3">
                       <p className="font-bold">{t("overnight")}</p>
-                      <p className="pl-2">{t(sleepType.find(it=> it.id == data.sleepType)?.name ?? "undefined_type")}</p>
+                      <p className="pl-2">{t(sleepType.find(it=> it.id === data.sleepType)?.name ?? "undefined_type")}</p>
                   </div>
               }
               {

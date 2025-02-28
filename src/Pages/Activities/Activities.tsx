@@ -1,7 +1,4 @@
-import React, {useEffect, useState} from "react";
-import {AdvancedImage} from "@cloudinary/react";
-import {getCdnImage} from "../../Services/ImagesService";
-import {IMAGES_ID} from "../../Constants/ImagesIds";
+import React from "react";
 import {Activity} from "../../Models/Activity";
 import { ActivityCard } from "./Avtivity/ActivityCard";
 import {useQuery} from "@tanstack/react-query";

@@ -1,7 +1,4 @@
 import React from "react";
-import { getCdnImage } from "../../Services/ImagesService";
-import { IMAGES_ID } from "../../Constants/ImagesIds";
-import {useTranslation} from "react-i18next";
 import {ImageCdn} from "../../Components/ImageCdn/ImageCdn";
 import {ReservationInputs} from "../../Components/ReservationInputs/ReservationInputs";
 

@@ -1,12 +1,6 @@
-import React, {useEffect} from "react";
-import {AdvancedImage} from "@cloudinary/react";
-import {getCdnImage} from "../../../Services/ImagesService";
-import {Activity} from "../../../Models/Activity";
+import React from "react";
 import {useTranslation} from "react-i18next";
-import AWS from 'aws-sdk';
 import {ImageCdn} from "../../../Components/ImageCdn/ImageCdn";
-import {S3CONSTANTS} from "../../../Constants/S3Constants";
-import {getActivityImageId} from "../../../Services/ActivityService";
 import {Infrastructure} from "../../../Models/Infrastructure";
 import {getInfrastructureImageId} from "../../../Services/InfrastructureService";
 

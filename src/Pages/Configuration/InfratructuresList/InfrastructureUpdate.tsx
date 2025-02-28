@@ -11,12 +11,10 @@ import {useNavigate, useParams} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {InfrastructureInput} from "../../../Models/InfrastructureInput";
 import {
-  createInfrastructure,
   removeInfrastructure,
   updateInfrastructure
 } from "../../../Services/InfrastructureService";
 import {useQuery} from "@tanstack/react-query";
-import {Activity} from "../../../Models/Activity";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
 import {Infrastructure} from "../../../Models/Infrastructure";
 
@@ -81,13 +79,13 @@ export function InfrastructureUpdate() {
 
       setLoading(false)
     }
-  }, [data]);
+  }, [data, isPending]);
 
   useEffect(() => {
     if (Object.keys(errors).length !== 0) {
       setErrors({})
     }
-  }, [inputValues]);
+  }, [inputValues, errors]);
 
   const validateAndUpdateInfrastructure = async () => {
     setErrors({})

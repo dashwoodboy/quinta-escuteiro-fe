@@ -1,5 +1,4 @@
 import React from "react";
-import {InputSizes} from "../utils/InputSizes";
 import {useTranslation} from "react-i18next";
 
 interface SwitchProps {
