@@ -266,7 +266,7 @@ export function Calendar({events, onEventClick, className}: CalendarProps) {
                                 </p>
                                 {showEvents(day.events)}
                                 {popUpOpened === `${day.day}_${obj.key}` &&
-                                    <div className={`absolute flex flex-col items-center z-50 w-40 bg-white p-2 -translate-x-14 ${index == 0 && "translate-x-2"} ${index == obj.value.length -1 && "-translate-x-24"}`} key={`${day.day}_${obj.key}_popup`}>
+                                    <div className={`absolute flex flex-col items-center z-50 w-40 bg-white p-2 -translate-x-14 ${index === 0 && "translate-x-2"} ${index === obj.value.length -1 && "-translate-x-24"}`} key={`${day.day}_${obj.key}_popup`}>
                                         {day.events?.map((event) => {
                                             return <div key={event.id} className="w-full flex items-center justify-center py-2 px-2 rounded-lg text-xs whitespace-nowrap text-center font-bold active:bg-primary active:text-white cursor-pointer" onClick={() => eventClick(event)}>
                                                 {activityColorDot(event.type)}
