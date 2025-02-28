@@ -15,14 +15,20 @@ export function ImageCdn({imageName, className}: ImageCdnProps) {
     const { isPending, error, data } = useQuery<string>({
         queryKey: [`image-${imageName}`],
         queryFn: async () => {
+            if (imageName === "")
+                throw new Error()
             return await getImageUrl(imageName)
         },
     })
 
+    if (imageName === "") {
+        return <img className={className} src={placeholder} alt="imagem"/>
+    }
+
     if (isPending) {
         return (
           <div className={`${className} flex justify-center items-center` }>
-            <Loading color={"#0D6054"}/>
+            <Loading/>
           </div>
         )
     } else if (data) {

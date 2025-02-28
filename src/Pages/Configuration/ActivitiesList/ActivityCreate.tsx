@@ -22,6 +22,7 @@ import {FileInput} from "../../../Components/Input/FileInput";
 import {Loading} from "../../../Components/Loading/Loading";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
+import TipTap from "../../../Components/TipTap/TipTap";
 
 export function ActivityCreate() {
 
@@ -135,7 +136,7 @@ export function ActivityCreate() {
                   }
                   error={errors?.messageEn}
                 />
-                <Input
+                <TipTap
                   label={t("about_pt")}
                   size={InputSizes.AREA}
                   value={inputValues.messagePt}
@@ -145,7 +146,7 @@ export function ActivityCreate() {
                   }
                   error={errors?.messagePt}
                 />
-                <Input
+                <TipTap
                   label={t("about_en")}
                   size={InputSizes.AREA}
                   value={inputValues.messageEn}

@@ -25,6 +25,7 @@ import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {useQuery} from "@tanstack/react-query";
 import {Activity} from "../../../Models/Activity";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import TipTap from "../../../Components/TipTap/TipTap";
 
 export function ActivityUpdate() {
 
@@ -193,7 +194,7 @@ export function ActivityUpdate() {
               }
               error={errors?.messageEn}
             />
-            <Input
+            <TipTap
               label={t("about_pt")}
               size={InputSizes.AREA}
               value={inputValues.messagePt}
@@ -203,7 +204,7 @@ export function ActivityUpdate() {
               }
               error={errors?.messagePt}
             />
-            <Input
+            <TipTap
               label={t("about_en")}
               size={InputSizes.AREA}
               value={inputValues.messageEn}
