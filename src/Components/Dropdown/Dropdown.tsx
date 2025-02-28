@@ -81,7 +81,7 @@ const Dropdown = ({
         }
     };
 
-    // @ts-ignore
+
     return (
         <div ref={dropdownRef} className={`relative ${sizeChosen(size)}`}>
             <label className={`font-robot font-medium ${labelColor? labelColor : 'text-gray-600'}`}>{label} {required && "*"}</label>
@@ -96,7 +96,9 @@ const Dropdown = ({
                 className="mt-1 flex justify-between items-center gap-5 rounded-lg w-full h-10 px-4 border border-gray-300 bg-gray-200"
             >
                 <span>{(translate? t(selectedItem?.name ?? "") :  selectedItem?.name)|| t("select")}</span>
-                { !disabled &&
+                {
+                    disabled &&
+                  // @ts-ignore!
                     <GoChevronDown
                         size={20}
                     />
