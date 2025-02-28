@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import {Reservation} from "../../Models/Reservation";
@@ -6,24 +6,12 @@ import {ApiEndpoints} from "../../Constants/ApiEndpoints";
 import {Loading} from "../../Components/Loading/Loading";
 import {useTranslation} from "react-i18next";
 import {StepProgress} from "../../Components/StepProgress/StepProgress";
-import {Steps} from "../../Components/StepProgress/Steps";
-import {Input} from "../../Components/Input/Input";
-import {InputSizes} from "../../Components/utils/InputSizes";
-import Dropdown from "../../Components/Dropdown/Dropdown";
-import {reservationsOptions} from "../Reservation/Utils";
-import {OnSite} from "../Reservation/OnSite";
-import {ReservationInput} from "../../Models/ReservationInput";
-import {Scouts} from "../Reservation/Options/Scouts";
-import {CatholicStructures} from "../Reservation/Options/CatholicStructures";
-import {Infrastructure} from "../../Models/Infrastructure";
-import {Activity} from "../../Models/Activity";
-import axios from "axios";
 import {ReservationInputs} from "../../Components/ReservationInputs/ReservationInputs";
 
 export function ReservationState() {
 
   const { id } = useParams()
-  const { t, i18n} = useTranslation()
+  const { t } = useTranslation()
 
   const { isPending, error, data } = useQuery<Reservation>({
     queryKey: ['reservationInfo'],

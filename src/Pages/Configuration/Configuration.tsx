@@ -29,7 +29,7 @@ export function Configuration() {
           {t("logout")}
         </button>
       </div>
-      <div className="w-full px-8 pb-4 flex flex-wrap gap-32">
+      <div className="w-full px-8 pb-4 flex flex-wrap lg:gap-32 gap-20  lg:justify-start justify-center">
         <Link
           to={ROUTER_APP_PATHS.RESERVATIONIST}
           className="w-60 h-60 bg-white rounded-lg shadow-2xl flex items-center py-8 flex-col justify-between cursor-pointer hover:bg-secondary hover:text-white"

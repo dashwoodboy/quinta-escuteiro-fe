@@ -2,7 +2,6 @@ import {ReservationInput} from "../Models/ReservationInput";
 import axios from "axios";
 import {ApiEndpoints} from "../Constants/ApiEndpoints";
 import {ReservationDto} from "../DTOs/ReservationDto";
-import {reservationsOptions} from "../Pages/Reservation/Utils";
 
 export const createReservation = async (reservation: ReservationInput) => {
 

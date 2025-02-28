@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import AWS from "aws-sdk";
+import React from "react";
 import {useQuery} from "@tanstack/react-query";
 import { useS3 } from "../../Providers/S3Provider";
 import {Loading} from "../Loading/Loading";
@@ -12,7 +11,7 @@ interface ImageCdnProps {
 
 export function ImageCdn({imageName, className}: ImageCdnProps) {
     const {getImageUrl} = useS3();
-    const { isPending, error, data } = useQuery<string>({
+    const { isPending, data } = useQuery<string>({
         queryKey: [`image-${imageName}`],
         queryFn: async () => {
             if (imageName === "")

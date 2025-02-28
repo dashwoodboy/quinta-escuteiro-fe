@@ -6,7 +6,6 @@ import {InputSizes} from "../../Components/utils/InputSizes";
 import {getAuth, signInWithEmailAndPassword} from "firebase/auth"
 import {FirebaseError} from "firebase/app"
 import * as yup from "yup";
-import {createReservation} from "../../Services/ReservationService";
 import {ValidationError} from "yup";
 import {useUser} from "../../Providers/UserProvider";
 import {useNavigate} from "react-router-dom";
@@ -29,13 +28,13 @@ export function Login() {
     if (Object.keys(errors).length !== 0) {
       setErrors({})
     }
-  }, [user]);
+  }, [user, errors]);
 
   useEffect(() => {
     if (loggedInUser.userId) {
       navigate(ROUTER_APP_PATHS.CONFIGURATION)
     }
-  }, [loggedInUser]);
+  }, [loggedInUser, navigate]);
 
   const inputValidationSchema = yup.object().shape({
     email: yup.string().email("emailType").required("required"),
@@ -46,7 +45,7 @@ export function Login() {
     setErrors({})
     try {
       await inputValidationSchema.validate(user, {abortEarly: false})
-      const response = await signInWithEmailAndPassword(auth, user.email, user.password)
+      await signInWithEmailAndPassword(auth, user.email, user.password)
     } catch (e: any) {
       const newErrors: { [key: string]: string } = {};
       if (e instanceof ValidationError) {

@@ -1,6 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import {ROUTER_APP_PATHS} from "./Constants/Routes";
 
 i18n.use(initReactI18next).init({
     lng: "pt",
@@ -135,7 +134,8 @@ i18n.use(initReactI18next).init({
                 verify_email: "Please verify your email. You cold have a message from us!",
                 close_reservation: "Close Reservation",
                 closed_reservation: "Reservation Closed",
-                accept_reservation: "Accept Reservation"
+                accept_reservation: "Accept Reservation",
+                all_reservation: "All Reservations"
             },
         },
         pt: {
@@ -264,7 +264,8 @@ i18n.use(initReactI18next).init({
                 verify_email: "Por favor verifique o seu email. Podemos ter entrado em contacto consigo!",
                 close_reservation: "Fechar Reserva",
                 closed_reservation: "Reserva Fechada",
-                accept_reservation: "Aceitar Reserva"
+                accept_reservation: "Aceitar Reserva",
+                all_reservation: "Todas as Reservas"
             },
         },
     },

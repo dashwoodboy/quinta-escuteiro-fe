@@ -20,7 +20,7 @@ export const UserProvider = ({ children }: Props) => {
     });
 
     return () => unsubscribe(); // Cleanup subscription on unmount
-  }, []);
+  });
 
   return (
     <UserContext.Provider value={{userId: userId}}>

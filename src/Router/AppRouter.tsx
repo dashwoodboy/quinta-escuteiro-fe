@@ -7,7 +7,6 @@ import {Colors} from "../Models/Colors";
 import {Reservation} from "../Pages/Reservation/Reservation";
 import {Activities} from "../Pages/Activities/Activities";
 import {Login} from "../Pages/User/Login";
-import {CONFIG_PARAMS} from "@cloudinary/url-gen/backwards/configuration";
 import {Configuration} from "../Pages/Configuration/Configuration";
 import {ReservationsList} from "../Pages/Configuration/ReservationsList/ReservationsList";
 import {ReservationReview} from "../Pages/Configuration/ReservationsList/ReservationReview";
@@ -20,10 +19,13 @@ import {InfrastructureUpdate} from "../Pages/Configuration/InfratructuresList/In
 import {Infrastructures} from "../Pages/Infrastructures/Infrastructures";
 import {ReservationState} from "../Pages/ReservationTest/ReservationState";
 import {ActivityView} from "../Pages/Activities/ActivityView";
+import {useUser} from "../Providers/UserProvider";
 
 export const ColorContext = createContext<Colors>(Colors.LOBITOS);
 
 function AppRouter() {
+
+    const { userId } = useUser()
 
     return (
         <div >
@@ -52,49 +54,53 @@ function AppRouter() {
                           element={<ReservationState />}
                         />
                         <Route
-                            path={ROUTER_APP_PATHS.LOGIN}
-                            element={<Login />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.CONFIGURATION}
-                            element={<Configuration />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.RESERVATIONIST}
-                            element={<ReservationsList />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.RESERVATIONREVIEW}
-                            element={<ReservationReview />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.ACTIVITIESLIST}
-                            element={<ActivitiesList />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.ACTIVITIESCREATE}
-                            element={<ActivityCreate />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.ACTIVITIESVIEW}
-                            element={<ActivityUpdate />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.INFRASTRUCTURESLIST}
-                            element={<InfrastructuresList />}
-                        />
-                        <Route
-                            path={ROUTER_APP_PATHS.INFRASTRUCTURESCREATE}
-                            element={<InfrastructureCreate />}
-                        />
-                        <Route
-                        path={ROUTER_APP_PATHS.INFRASTRUCTURESVIEW}
-                        element={<InfrastructureUpdate />}
-                        />
-                        <Route
                           path={ROUTER_APP_PATHS.INFRASTRUCTURES}
                           element={<Infrastructures />}
                         />
+                        <Route
+                          path={ROUTER_APP_PATHS.LOGIN}
+                          element={<Login />}
+                        />
+                        {userId &&
+                            <>
+                                <Route
+                                    path={ROUTER_APP_PATHS.CONFIGURATION}
+                                    element={<Configuration />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.RESERVATIONIST}
+                                    element={<ReservationsList />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.RESERVATIONREVIEW}
+                                    element={<ReservationReview />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.ACTIVITIESLIST}
+                                    element={<ActivitiesList />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.ACTIVITIESCREATE}
+                                    element={<ActivityCreate />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.ACTIVITIESVIEW}
+                                    element={<ActivityUpdate />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.INFRASTRUCTURESLIST}
+                                    element={<InfrastructuresList />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.INFRASTRUCTURESCREATE}
+                                    element={<InfrastructureCreate />}
+                                />
+                                <Route
+                                    path={ROUTER_APP_PATHS.INFRASTRUCTURESVIEW}
+                                    element={<InfrastructureUpdate />}
+                                />
+                            </>
+                    }
                     </Routes>
                 </div>
             </BrowserRouter>

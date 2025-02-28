@@ -28,9 +28,6 @@ const getImageUrl = async (imageName: string) => {
   }
 }
 
-const uploadImage = async (file: File) => {
-
-}
 
 type Props = {
   children?: ReactElement | ReactElement[]

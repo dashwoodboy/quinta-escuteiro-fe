@@ -1,7 +1,5 @@
 import axios from "axios";
 import {ApiEndpoints} from "../Constants/ApiEndpoints";
-import {ActivityInput} from "../Models/ActivityInput";
-import {ActivityDto} from "../DTOs/ActivityDto";
 import {s3} from "../Providers/S3Provider";
 import { v4 as uuidv4 } from 'uuid';
 import {S3CONSTANTS} from "../Constants/S3Constants";

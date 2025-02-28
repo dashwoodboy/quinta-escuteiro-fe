@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import React from "react";
+import React, {useState} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {Activity} from "../../../Models/Activity";
 import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
@@ -14,13 +14,21 @@ import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 
 export function ReservationsList() {
 
-  const { isPending, error, data } = useQuery<ReservationListItem[]>({
-    queryKey: ['reservationsList'],
+  const [reservationFilter, setReservationFilter] = useState<string>("-1")
+
+  const { isPending, error, data, refetch } = useQuery<ReservationListItem[]>({
+    queryKey: ['reservationsList', reservationFilter],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_LIST}`).then((res) =>
+      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_LIST}${
+        reservationFilter === "-1"? "" : "?reservationsStates=" + reservationFilter
+      }`).then((res) =>
         res.json(),
       ),
   })
+
+  const filter = (option: string) => {
+    setReservationFilter(option)
+  }
 
   const { t } = useTranslation()
   const navigate = useNavigate()
@@ -29,7 +37,7 @@ export function ReservationsList() {
     if (isPending) {
       return (
         <div className="w-full h-full flex justify-center items-center">
-          <Loading color="#"/>
+          <Loading color="#ffffff"/>
         </div>
       )
     } else if (error){
@@ -68,13 +76,14 @@ export function ReservationsList() {
 
   return (
     <div className="w-full h-full bg-primary flex flex-col">
-      <div className="w-full flex pb-8 pt-2 px-8 justify-between items-center">
+      <div className="w-full flex lg:flex-row flex-col pb-8 pt-2 px-8 justify-between items-center">
         <h1 className="font-extrabold text-white text-3xl pt-6">{t("reservations")}</h1>
         <Dropdown
           id="reservationState"
           data={reservationStates}
           label={t("reservation_state")}
           labelColor='text-white'
+          onSelect={option => filter(option)}
         />
       </div>
       {reservations()}
