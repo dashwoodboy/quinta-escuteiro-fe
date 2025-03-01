@@ -76,7 +76,6 @@
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
-    "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
     "timers-browserify": "^2.0.12",
     "typescript": "^4.9.5",
@@ -87,7 +86,22 @@
     "webpack-dev-server": "^4.6.0",
     "webpack-manifest-plugin": "^4.0.2",
     "workbox-webpack-plugin": "^6.4.1",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "@types/minio": "^7.1.0",
+    "assert": "^2.1.0",
+    "browserify-fs": "^1.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "pre-commit": "^1.0.10",
+    "prettier": "3.2.5",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "tailwindcss": "^3.4.1",
+    "url": "^0.11.4"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -112,21 +126,7 @@
     ]
   },
   "devDependencies": {
-    "@types/minio": "^7.1.0",
-    "assert": "^2.1.0",
-    "browserify-fs": "^1.0.0",
-    "buffer": "^6.0.3",
-    "crypto-browserify": "^3.12.1",
-    "https-browserify": "^1.0.0",
-    "os-browserify": "^0.3.0",
-    "pre-commit": "^1.0.10",
-    "prettier": "3.2.5",
-    "process": "^0.11.10",
-    "react-app-rewired": "^2.2.1",
-    "stream-browserify": "^3.0.0",
-    "stream-http": "^3.2.0",
-    "tailwindcss": "^3.4.1",
-    "url": "^0.11.4"
+
   },
   "jest": {
     "roots": [
