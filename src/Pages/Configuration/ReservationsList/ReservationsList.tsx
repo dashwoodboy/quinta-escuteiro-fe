@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import React, {useState} from "react";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import {ReservationListItem} from "../../../Models/ReservationListItem";
 import {Loading} from "../../../Components/Loading/Loading";
 import {reservationsOptions} from "../../Reservation/Utils";
@@ -18,7 +18,7 @@ export function ReservationsList() {
   const { isPending, error, data } = useQuery<ReservationListItem[]>({
     queryKey: ['reservationsList', reservationFilter],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_LIST}${
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_LIST}${
         reservationFilter === "-1"? "" : "?reservationsStates=" + reservationFilter
       }`).then((res) =>
         res.json(),

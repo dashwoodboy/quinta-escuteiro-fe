@@ -18,3 +18,5 @@ export enum ApiEndpoints {
   UPDATE_INFRASTRUCTURE = "/infrastructures/{id}",
   DELETE_INFRASTRUCTURE = "/infrastructures/{id}",
 }
+
+export const REACT_APP_API_LOCATION = "http://daplstorage.zapto.org:9011"

@@ -1,6 +1,6 @@
 import {ReservationInput} from "../Models/ReservationInput";
 import axios from "axios";
-import {ApiEndpoints} from "../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../Constants/ApiEndpoints";
 import {ReservationDto} from "../DTOs/ReservationDto";
 
 export const createReservation = async (reservation: ReservationInput) => {
@@ -37,13 +37,13 @@ export const createReservation = async (reservation: ReservationInput) => {
     infrastructures: reservation.infrastructuresIds ?? []
   }
 
-  const data = await axios.post(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ADD_RESERVATION}`, reservationDto)
+  const data = await axios.post(`${REACT_APP_API_LOCATION}${ApiEndpoints.ADD_RESERVATION}`, reservationDto)
   console.log(data)
 }
 
 export const confirmReservation = async (reservationId: string): Promise<boolean> => {
   try {
-    const response = await axios.put(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_CONFIRM.replace(":id", reservationId)}?reservationState=1`)
+    const response = await axios.put(`${REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_CONFIRM.replace(":id", reservationId)}?reservationState=1`)
 
     return response.status === 202;
 
@@ -54,7 +54,7 @@ export const confirmReservation = async (reservationId: string): Promise<boolean
 
 export const closeReservation = async (reservationId: string): Promise<boolean> => {
   try {
-    const response = await axios.put(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_CONFIRM.replace(":id", reservationId)}?reservationState=2`)
+    const response = await axios.put(`${REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_CONFIRM.replace(":id", reservationId)}?reservationState=2`)
 
     return response.status === 202;
 

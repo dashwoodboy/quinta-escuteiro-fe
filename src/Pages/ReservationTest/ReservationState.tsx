@@ -2,7 +2,7 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
 import {Reservation} from "../../Models/Reservation";
-import {ApiEndpoints} from "../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../Constants/ApiEndpoints";
 import {Loading} from "../../Components/Loading/Loading";
 import {useTranslation} from "react-i18next";
 import {StepProgress} from "../../Components/StepProgress/StepProgress";
@@ -15,7 +15,7 @@ export function ReservationState() {
 
   const { isPending, error, data } = useQuery<Reservation>({
     queryKey: ['reservationInfo'],
-    queryFn:  () => fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_STATE.replace(":id", id ?? "")}`).then((res) =>
+    queryFn:  () => fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION_STATE.replace(":id", id ?? "")}`).then((res) =>
       res.json(),
     )
   })

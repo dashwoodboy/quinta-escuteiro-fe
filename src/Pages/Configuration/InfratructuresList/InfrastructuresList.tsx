@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import {Loading} from "../../../Components/Loading/Loading";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {Infrastructure} from "../../../Models/Infrastructure";
@@ -12,7 +12,7 @@ export function InfrastructuresList() {
   const { isPending, error, data } = useQuery<Infrastructure[]>({
     queryKey: ['infrastructureList'],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`).then((res) =>
         res.json(),
       ),
   })

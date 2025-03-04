@@ -1,6 +1,6 @@
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import {useParams} from "react-router-dom";
 import {Loading} from "../../../Components/Loading/Loading";
 import {reservationsOptions, sleepType} from "../../Reservation/Utils";
@@ -17,7 +17,7 @@ export function ReservationReview() {
   const { isPending, error, data, refetch } = useQuery<Reservation>({
     queryKey: ['reservationReview'],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION.replace(":id", id ?? "")}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.RESERVATION.replace(":id", id ?? "")}`).then((res) =>
         res.json(),
       ),
   })

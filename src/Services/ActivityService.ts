@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ApiEndpoints} from "../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../Constants/ApiEndpoints";
 import {ActivityInput} from "../Models/ActivityInput";
 import {ActivityDto} from "../DTOs/ActivityDto";
 import {s3} from "../Providers/S3Provider";
@@ -35,7 +35,7 @@ export const createActivity = async (activity: ActivityInput) => {
       icon: icon
     }
 
-    const response = await axios.post(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ADD_ACTIVITIES}`, activityDto)
+    const response = await axios.post(`${REACT_APP_API_LOCATION}${ApiEndpoints.ADD_ACTIVITIES}`, activityDto)
 
     if (response.status !== 201) {
       throw new Error("error_creating")
@@ -79,7 +79,7 @@ export const updateActivity = async (activity: ActivityInput) => {
     }
 
     const response = await axios.put(
-      `${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.UPDATE_ACTIVITY.replace("{id}", activity.id)}`,
+      `${REACT_APP_API_LOCATION}${ApiEndpoints.UPDATE_ACTIVITY.replace("{id}", activity.id)}`,
       activityDto
     )
 
@@ -99,7 +99,7 @@ export const removeActivity = async (activityId?: string) => {
   }
 
   const response =await axios.delete(
-    `${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.DELETE_ACTIVITY.replace("{id}", activityId)}`
+    `${REACT_APP_API_LOCATION}${ApiEndpoints.DELETE_ACTIVITY.replace("{id}", activityId)}`
   )
 
   if (response.status !== 200) {

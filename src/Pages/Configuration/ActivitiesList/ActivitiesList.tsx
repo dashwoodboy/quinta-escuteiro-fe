@@ -3,7 +3,7 @@ import {useTranslation} from "react-i18next";
 import {Loading} from "../../../Components/Loading/Loading";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import {Activity} from "../../../Models/Activity";
 import {useNavigate} from "react-router-dom";
 
@@ -12,7 +12,7 @@ export function ActivitiesList() {
   const { isPending, error, data } = useQuery<Activity[]>({
     queryKey: ['activitiesList'],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`).then((res) =>
         res.json(),
       ),
   })

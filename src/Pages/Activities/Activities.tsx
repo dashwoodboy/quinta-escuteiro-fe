@@ -2,7 +2,7 @@ import React from "react";
 import {Activity} from "../../Models/Activity";
 import { ActivityCard } from "./Avtivity/ActivityCard";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../Constants/ApiEndpoints";
 import {useTranslation} from "react-i18next";
 import {ROUTER_APP_PATHS} from "../../Constants/Routes";
 import {useNavigate} from "react-router-dom";
@@ -17,7 +17,7 @@ export function Activities() {
   const { isPending, error, data } = useQuery<Activity[]>({
     queryKey: ['activities'],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`).then((res) =>
         res.json(),
       ),
   })
@@ -26,7 +26,7 @@ export function Activities() {
     if (isPending) {
       return (
         <div className="w-full h-full flex justify-center items-center">
-          <Loading color="#0D6054"/>
+          <Loading color="#ffffff"/>
         </div>
       )
     } else if (error) {

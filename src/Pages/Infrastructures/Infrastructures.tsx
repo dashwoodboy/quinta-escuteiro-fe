@@ -1,6 +1,6 @@
 import React from "react";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../Constants/ApiEndpoints";
 import {Infrastructure} from "../../Models/Infrastructure";
 import {ImageCdn} from "../../Components/ImageCdn/ImageCdn";
 import {InfrastructureCard} from "./Infrastructure/InfrastructureCard";
@@ -18,7 +18,7 @@ export function Infrastructures() {
   const { isPending, error, data } = useQuery<Infrastructure[]>({
     queryKey: ['infrastructures'],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`).then((res) =>
         res.json(),
       ),
   })

@@ -13,7 +13,7 @@ import {useQuery} from "@tanstack/react-query";
 import {Infrastructure} from "../../Models/Infrastructure";
 import {Activity} from "../../Models/Activity";
 import axios from "axios";
-import {ApiEndpoints} from "../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../Constants/ApiEndpoints";
 import {Scouts} from "../../Pages/Reservation/Options/Scouts";
 import {CatholicStructures} from "../../Pages/Reservation/Options/CatholicStructures";
 import {Loading} from "../Loading/Loading";
@@ -151,8 +151,8 @@ export function ReservationInputs({ readonly, initialData }: ReservationInputsPr
   const { isPending, error, data } = useQuery<{infrastructures: Infrastructure[], activities: Activity[]}>({
     queryKey: ['reservationInfo'],
     queryFn: async () => {
-      const infrastructures = axios(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`)
-      const activities =  axios(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`)
+      const infrastructures = axios(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_INFRASTRUCTURES}`)
+      const activities =  axios(`${REACT_APP_API_LOCATION}${ApiEndpoints.ALL_ACTIVITIES}`)
 
       const result = await Promise.all([infrastructures, activities])
 

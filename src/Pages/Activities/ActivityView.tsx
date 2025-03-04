@@ -1,6 +1,6 @@
 import {useParams} from "react-router-dom";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../Constants/ApiEndpoints";
 import {Activity} from "../../Models/Activity";
 import {ImageCdn} from "../../Components/ImageCdn/ImageCdn";
 import {getActivityImageId} from "../../Services/ActivityService";
@@ -17,7 +17,7 @@ export function ActivityView() {
   const { isPending, error, data } = useQuery<Activity>({
     queryKey: [`activity_${id}`],
     queryFn: () =>
-      fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ACTIVITY.replace("{id}", id ?? "")}`).then((res) =>
+      fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ACTIVITY.replace("{id}", id ?? "")}`).then((res) =>
         res.json(),
       ),
   })

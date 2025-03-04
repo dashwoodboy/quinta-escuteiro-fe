@@ -15,7 +15,7 @@ import {
   updateInfrastructure
 } from "../../../Services/InfrastructureService";
 import {useQuery} from "@tanstack/react-query";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import {Infrastructure} from "../../../Models/Infrastructure";
 
 export function InfrastructureUpdate() {
@@ -48,7 +48,7 @@ export function InfrastructureUpdate() {
     queryKey: [`infrastructure_${id}`],
     queryFn: async () => {
       if (id) {
-        const res = await fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.INFRASTRUCTURE.replace("{id}", id)}`);
+        const res = await fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.INFRASTRUCTURE.replace("{id}", id)}`);
         return await res.json();
       } else {
         throw  new Error("invalid_id")

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ApiEndpoints} from "../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../Constants/ApiEndpoints";
 import {s3} from "../Providers/S3Provider";
 import { v4 as uuidv4 } from 'uuid';
 import {S3CONSTANTS} from "../Constants/S3Constants";
@@ -33,7 +33,7 @@ export const createInfrastructure = async (infrastructure: InfrastructureInput) 
       icon: icon
     }
 
-    const response = await axios.post(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ADD_INFRASTRUCTURES}`, infrastructureDto)
+    const response = await axios.post(`${REACT_APP_API_LOCATION}${ApiEndpoints.ADD_INFRASTRUCTURES}`, infrastructureDto)
 
     if (response.status !== 201) {
       throw new Error("error_creating")
@@ -74,7 +74,7 @@ export const updateInfrastructure = async (infrastructure: InfrastructureInput) 
     }
 
     const response = await axios.put(
-      `${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.UPDATE_INFRASTRUCTURE.replace("{id}", infrastructure.infrastructureId)}`,
+      `${REACT_APP_API_LOCATION}${ApiEndpoints.UPDATE_INFRASTRUCTURE.replace("{id}", infrastructure.infrastructureId)}`,
         infrastructureDto
     )
 
@@ -94,7 +94,7 @@ export const removeInfrastructure = async (infrastructureId?: string) => {
   }
 
   const response = await axios.delete(
-    `${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.DELETE_INFRASTRUCTURE.replace("{id}", infrastructureId)}`
+    `${REACT_APP_API_LOCATION}${ApiEndpoints.DELETE_INFRASTRUCTURE.replace("{id}", infrastructureId)}`
   )
 
   if (response.status !== 200) {

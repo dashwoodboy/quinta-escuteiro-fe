@@ -14,7 +14,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
 import {useQuery} from "@tanstack/react-query";
 import {Activity} from "../../../Models/Activity";
-import {ApiEndpoints} from "../../../Constants/ApiEndpoints";
+import {ApiEndpoints, REACT_APP_API_LOCATION} from "../../../Constants/ApiEndpoints";
 import TipTap from "../../../Components/TipTap/TipTap";
 
 export function ActivityUpdate() {
@@ -53,7 +53,7 @@ export function ActivityUpdate() {
     queryKey: [`activity_${id}`],
     queryFn: async () => {
       if (id) {
-        const res = await fetch(`${process.env.REACT_APP_API_LOCATION}${ApiEndpoints.ACTIVITY.replace("{id}", id)}`);
+        const res = await fetch(`${REACT_APP_API_LOCATION}${ApiEndpoints.ACTIVITY.replace("{id}", id)}`);
         return await res.json();
       } else {
         throw  new Error("invalid_id")
