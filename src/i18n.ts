@@ -12,7 +12,7 @@ i18n.use(initReactI18next).init({
             translation: {
                 title: "Discover Quinta",
                 more: "About Us",
-                reserve: "Reserve",
+                reserve: "Book",
                 home: "Home",
                 reservations: "Reservations",
                 reservation: "Reservation",
