@@ -1,6 +1,6 @@
 import React from "react"
 import {useTranslation} from "react-i18next";
-import {faPenToSquare, faPersonWalking, faHouse} from "@fortawesome/free-solid-svg-icons";
+import {faPenToSquare, faPersonWalking, faHouse, faFile} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {getAuth} from "firebase/auth"
 import {Link, useNavigate} from "react-router-dom";
@@ -63,6 +63,17 @@ export function Configuration() {
             className="cursor-pointer mt-8"
           />
           <h1 className="text-xl font-bold cursor-pointer">{t("infrastructures")}</h1>
+        </Link>
+        <Link
+          to={ROUTER_APP_PATHS.DOCUMENTSLIST}
+          className="w-60 h-60 bg-white rounded-lg shadow-2xl flex items-center py-8 flex-col justify-between cursor-pointer hover:bg-secondary hover:text-white"
+        >
+          <FontAwesomeIcon
+            icon={faFile}
+            size="4x"
+            className="cursor-pointer mt-8"
+          />
+          <h1 className="text-xl font-bold cursor-pointer">{t("documents")}</h1>
         </Link>
       </div>
     </div>

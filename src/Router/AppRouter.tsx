@@ -1,7 +1,7 @@
 import React, {createContext} from "react";
 import {Home} from "../Pages/Home";
 import {Navbar} from "../Components/Navbar/Navbar";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import {ROUTER_APP_PATHS} from "../Constants/Routes";
 import {Colors} from "../Models/Colors";
 import {Reservation} from "../Pages/Reservation/Reservation";
@@ -20,6 +20,9 @@ import {Infrastructures} from "../Pages/Infrastructures/Infrastructures";
 import {ReservationState} from "../Pages/ReservationTest/ReservationState";
 import {ActivityView} from "../Pages/Activities/ActivityView";
 import {useUser} from "../Providers/UserProvider";
+import {Documents} from "../Pages/Documents/Documents";
+import {DocumentsList} from "../Pages/Configuration/DocumentsList/DocumentsList";
+import {DocumentAdd} from "../Pages/Configuration/DocumentsList/DocumentAdd";
 
 export const ColorContext = createContext<Colors>(Colors.LOBITOS);
 
@@ -56,6 +59,10 @@ function AppRouter() {
                         <Route
                           path={ROUTER_APP_PATHS.INFRASTRUCTURES}
                           element={<Infrastructures />}
+                        />
+                        <Route
+                            path={ROUTER_APP_PATHS.DOCUMENTS}
+                            element={<Documents />}
                         />
                         <Route
                           path={ROUTER_APP_PATHS.LOGIN}
@@ -99,8 +106,20 @@ function AppRouter() {
                                     path={ROUTER_APP_PATHS.INFRASTRUCTURESVIEW}
                                     element={<InfrastructureUpdate />}
                                 />
+                                <Route
+                                  path={ROUTER_APP_PATHS.DOCUMENTSLIST}
+                                  element={<DocumentsList />}
+                                />
+                                <Route
+                                  path={ROUTER_APP_PATHS.DOCUMENTSADD}
+                                  element={<DocumentAdd />}
+                                />
                             </>
-                    }
+                        }
+                        <Route
+                          path="*"
+                          element={<Navigate to={ROUTER_APP_PATHS.ROOT} replace />}
+                        />
                     </Routes>
                 </div>
             </BrowserRouter>

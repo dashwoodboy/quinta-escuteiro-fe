@@ -118,6 +118,16 @@ export function Navbar() {
                     <AnimatedText text={t("infrastructures")} activeAnimation={returnFromSide === AnimationState.MOVING} inverse={true} key="Infraestrutura" />
                 </NavLink>
                 <NavLink
+                    to={ROUTER_APP_PATHS.DOCUMENTS}
+                    className={({ isActive }) =>
+                        `lg:mx-4 font-bold text-2xl lg:text-base py-4 ${
+                            isActive ? "text-secondary" : "text-white hover:text-secondary"
+                        }`
+                    }
+                >
+                    <AnimatedText text={t("documents")} activeAnimation={returnFromSide === AnimationState.MOVING} inverse={true} key="documents" />
+                </NavLink>
+                <NavLink
                   to={ROUTER_APP_PATHS.RESERVATION}
                   className={({ isActive }) =>
                     `lg:mx-4 font-bold text-2xl lg:text-base py-2 px-32 lg:px-8 bg-white rounded-lg text-primary hover:bg-gray-300 lg:mt-0 mt-20`

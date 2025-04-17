@@ -6,6 +6,7 @@ export const ROUTER_APP_PATHS = {
     RESERVATION: "/reservation",
     RESERVATIONSTATE: "/reservation/:id",
     INFRASTRUCTURES: "/infrastructures",
+    DOCUMENTS: "/documents",
     CONFIGURATION: "/configuration",
     RESERVATIONIST: "/configuration/reservations",
     RESERVATIONREVIEW: "/configuration/reservations/:id",
@@ -15,5 +16,7 @@ export const ROUTER_APP_PATHS = {
     INFRASTRUCTURESLIST: "/configuration/infrastructures",
     INFRASTRUCTURESVIEW: "/configuration/infrastructures/:id",
     INFRASTRUCTURESCREATE: "/configuration/infrastructures/create",
+    DOCUMENTSLIST: "/configuration/documents",
+    DOCUMENTSADD: "/configuration/documents/add",
 };
 

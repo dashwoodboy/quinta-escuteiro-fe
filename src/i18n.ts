@@ -135,7 +135,11 @@ i18n.use(initReactI18next).init({
                 close_reservation: "Close Reservation",
                 closed_reservation: "Reservation Closed",
                 accept_reservation: "Accept Reservation",
-                all_reservation: "All Reservations"
+                all_reservation: "All Reservations",
+                documents: "Documents",
+                add_document: "Add Document",
+                document: "Document",
+                error_select_file: "Should select one document",
             },
         },
         pt: {
@@ -265,7 +269,11 @@ i18n.use(initReactI18next).init({
                 close_reservation: "Fechar Reserva",
                 closed_reservation: "Reserva Fechada",
                 accept_reservation: "Aceitar Reserva",
-                all_reservation: "Todas as Reservas"
+                all_reservation: "Todas as Reservas",
+                documents: "Documentos",
+                add_document: "Adicionar Documento",
+                document: "Documento",
+                error_select_file: "Deve selecionar um documento"
             },
         },
     },
