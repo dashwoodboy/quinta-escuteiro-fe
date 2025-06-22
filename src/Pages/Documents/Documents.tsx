@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import {listDocuments, openDocument} from "../../Services/DocumentService";
+import {listDocumentsPublic, openDocument} from "../../Services/DocumentService";
 import { useQuery } from "@tanstack/react-query";
 import {Loading} from "../../Components/Loading/Loading";
 import React from "react";
@@ -12,7 +12,7 @@ export function Documents() {
   const navigate = useNavigate()
   const { isPending, error, data } = useQuery<Document[]>({
     queryKey: ['documentsList '],
-    queryFn: async () => await listDocuments()
+    queryFn: async () => await listDocumentsPublic()
   })
 
   const content = () => {

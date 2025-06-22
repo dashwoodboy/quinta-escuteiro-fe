@@ -9,6 +9,7 @@ import firebase from "firebase/compat/app";
 import initializeApp = firebase.initializeApp;
 import {firebaseConfig} from "./Config/config";
 import {UserProvider} from "./Providers/UserProvider";
+import {APIProvider} from "@vis.gl/react-google-maps";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement

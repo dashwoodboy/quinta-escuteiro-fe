@@ -86,11 +86,11 @@ export function Navbar() {
     const DefaultOptions = () => {
 
         return (
-            <div className="flex flex-col lg:flex-row w-full lg:w-auto h-full justify-center lg:justify-evenly items-center">
+            <div className="flex flex-col xl:flex-row w-full xl:w-auto h-full justify-center xl:justify-evenly items-center">
                 <NavLink
                     to={ROUTER_APP_PATHS.ROOT}
                     className={({ isActive }) =>
-                        `lg:mx-4 font-bold text-2xl lg:text-base py-4 ${
+                        `xl:mx-4 font-bold text-2xl xl:text-base py-4 ${
                             isActive ? "text-secondary" : "text-white hover:text-secondary"
                         }`
                     }
@@ -100,7 +100,7 @@ export function Navbar() {
                 <NavLink
                   to={ROUTER_APP_PATHS.ACTIVITIES}
                   className={({ isActive }) =>
-                    `lg:mx-4 font-bold text-2xl lg:text-base py-4 ${
+                    `xl:mx-4 font-bold text-2xl xl:text-base py-4 ${
                       isActive ? "text-secondary" : "text-white hover:text-secondary"
                     }`
                   }
@@ -110,7 +110,7 @@ export function Navbar() {
                 <NavLink
                   to={ROUTER_APP_PATHS.INFRASTRUCTURES}
                   className={({ isActive }) =>
-                    `lg:mx-4 font-bold text-2xl lg:text-base py-4 ${
+                    `xl:mx-4 font-bold text-2xl xl:text-base py-4 ${
                       isActive ? "text-secondary" : "text-white hover:text-secondary"
                     }`
                   }
@@ -120,7 +120,7 @@ export function Navbar() {
                 <NavLink
                     to={ROUTER_APP_PATHS.DOCUMENTS}
                     className={({ isActive }) =>
-                        `lg:mx-4 font-bold text-2xl lg:text-base py-4 ${
+                        `xl:mx-4 font-bold text-2xl xl:text-base py-4 ${
                             isActive ? "text-secondary" : "text-white hover:text-secondary"
                         }`
                     }
@@ -130,14 +130,14 @@ export function Navbar() {
                 <NavLink
                   to={ROUTER_APP_PATHS.RESERVATION}
                   className={({ isActive }) =>
-                    `lg:mx-4 font-bold text-2xl lg:text-base py-2 px-32 lg:px-8 bg-white rounded-lg text-primary hover:bg-gray-300 lg:mt-0 mt-20`
+                    `xl:mx-4 font-bold text-2xl xl:text-base py-2 px-32 xl:px-8 bg-white rounded-lg text-primary hover:bg-gray-300 xl:mt-0 mt-20`
                   }
                 >
                     <AnimatedText text={t("reserve")} activeAnimation={returnFromSide === AnimationState.MOVING} inverse={true} key="Reserve" />
                 </NavLink>
                 {loggedInUser.userId &&
                   <NavLink
-                    className="lg:mx-0 mx-4  py-2 px-8 lg:py-0 lg:px-0"
+                    className="xl:mx-0 mx-4  py-2 px-8 xl:py-0 xl:px-0"
                     to={ROUTER_APP_PATHS.LOGIN}
                   >
                       <UserIcon/>
@@ -193,7 +193,7 @@ export function Navbar() {
 
     const desktop = () => {
         return (
-            <div className="w-1/2 hidden lg:flex  justify-end items-center">
+            <div className="w-1/2 hidden xl:flex  justify-end items-center">
                 {DefaultOptions()}
             </div>
         );
@@ -207,27 +207,27 @@ export function Navbar() {
         };
 
         return (
-            <div className="flex lg:hidden">
+            <div className="flex xl:hidden">
                 <MenuIcon onClick={onMenuClick} />
             </div>
         );
     };
 
     return (
-        <div className="w-full h-20 flex justify-between items-center fixed top-0 pl-2 pr-4 lg:px-8  drop-shadow-lg shadow-black bg-primary z-50 cursor-pointer">
+        <div className="w-full h-20 flex justify-between items-center fixed top-0 pl-2 pr-4 xl:px-8  drop-shadow-lg shadow-black bg-primary z-50 cursor-pointer">
             <div className="h-full flex items-center">
                 <img
                     src={quintaLogo}
                     alt="logo"
-                    className="lg:h-5/6 h-4/6"
+                    className="xl:h-5/6 h-4/6"
                     onClick={onLogoClick}
                 />
                 <div className="flex flex-col items-center">
-                    <h1 className="font-bold lg:text-xl text-white whitespace-nowrap">Quinta do Escuteiro</h1>
-                    <h2 className="font-bold text-sm lg:text-base text-white">Batalha - Portugal</h2>
+                    <h1 className="font-bold xl:text-xl text-white whitespace-nowrap">Quinta do Escuteiro</h1>
+                    <h2 className="font-bold text-sm xl:text-base text-white">Batalha - Portugal</h2>
                 </div>
                 <div
-                    className="lg:ml-8 ml-4 py-1 px-4 bg-white rounded-lg flex justify-between items-center hover:text-white hover:bg-secondary"
+                    className="xl:ml-8 ml-4 py-1 px-4 bg-white rounded-lg flex justify-between items-center hover:text-white hover:bg-secondary"
                     onClick={() => {
                         i18n.changeLanguage(i18n.language === "pt"? "en" : "pt");
                     }}

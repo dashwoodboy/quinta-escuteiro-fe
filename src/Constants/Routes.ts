@@ -6,6 +6,7 @@ export const ROUTER_APP_PATHS = {
     RESERVATION: "/reservation",
     RESERVATIONSTATE: "/reservation/:id",
     INFRASTRUCTURES: "/infrastructures",
+    MORE: "/more",
     DOCUMENTS: "/documents",
     CONFIGURATION: "/configuration",
     RESERVATIONIST: "/configuration/reservations",

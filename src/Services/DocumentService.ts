@@ -3,13 +3,13 @@ import {S3CONSTANTS} from "../Constants/S3Constants";
 import AWS from "aws-sdk";
 import {Document} from "../Models/Document"
 
-export const listDocuments = async ()=> {
+export const listDocumentsPublic = async ()=> {
     try {
         let allFiles: Document[] = [];
 
         const params: AWS.S3.Types.ListObjectsV2Request = {
             Bucket: S3CONSTANTS.BUCKET,
-            Prefix: S3CONSTANTS.DOCUMENTS_LIST
+            Prefix: S3CONSTANTS.DOCUMENTS_LIST_PUBLIC
         }
 
 
@@ -18,11 +18,57 @@ export const listDocuments = async ()=> {
         if (response.Contents) {
             const fileNames = response.Contents.map((item) => ({
                   id: item.Key || "",
-                  name: item.Key?.replace("documents/", "").replace(".pdf", "") || ""
+                  name: item.Key?.replace("documents/public/", "").replace(".pdf", "") || "",
+                  privateFile: false
               })
             )
 
             allFiles = [...allFiles, ...fileNames]
+        }
+
+        return allFiles
+    } catch (error) {
+        console.error("Error listing files:", error)
+        throw error
+    }
+}
+
+export const listAllDocuments = async ()=> {
+    try {
+        let allFiles: Document[] = [];
+
+        const params: AWS.S3.Types.ListObjectsV2Request = {
+            Bucket: S3CONSTANTS.BUCKET,
+            Prefix: S3CONSTANTS.DOCUMENTS_LIST_PUBLIC
+        }
+
+
+        const responsePublic = await s3.listObjectsV2(params).promise()
+
+        const paramsPriv: AWS.S3.Types.ListObjectsV2Request = {
+            Bucket: S3CONSTANTS.BUCKET,
+            Prefix: S3CONSTANTS.DOCUMENTS_LIST_PRIVATE
+        }
+
+
+        const responsePrivate = await s3.listObjectsV2(paramsPriv).promise()
+
+        if (responsePublic.Contents && responsePrivate.Contents) {
+            const fileNamesPublic = responsePublic.Contents.map((item) => ({
+                  id: item.Key || "",
+                  name: item.Key?.replace("documents/public/", "").replace(".pdf", "") || "",
+                  privateFile: false
+              })
+            )
+
+            const fileNamesPrivate = responsePrivate.Contents.map((item) => ({
+                  id: item.Key || "",
+                  name: item.Key?.replace("documents/private/", "").replace(".pdf", "") || "",
+                  privateFile: true
+              })
+            )
+
+            allFiles = [...allFiles, ...fileNamesPublic, ...fileNamesPrivate]
         }
 
         return allFiles
@@ -70,11 +116,13 @@ export const openDocument = async (file: string) => {
 
 }
 
-export const uploadDocument = async (file: File) => {
+export const uploadDocument = async (file: File, privateFile: boolean) => {
     try {
+        const files = privateFile? S3CONSTANTS.DOCUMENT_KEY_PRIVATE : S3CONSTANTS.DOCUMENT_KEY_PUBLIC
+        console.log(file.name)
         const uploadParams: AWS.S3.Types.PutObjectRequest = {
             Bucket: S3CONSTANTS.BUCKET,
-            Key: S3CONSTANTS.DOCUMENT_KEY.replace("{id}", file.name),
+            Key: files.replace("{id}", file.name),
             Body: file,
             ContentType: file.type,
         }

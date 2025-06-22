@@ -27,6 +27,7 @@ export function Home() {
                 <div className="flex flex-col lg:mt-10 mt-28 justify-center">
                     <button
                         className="lg:bg-white bg-primary w-96 py-4 rounded-lg drop-shadow-lg mb-8 text-white lg:text-primary font-bold hover:bg-gray-300 hover:drop-shadow-none"
+                        onClick={() => navigate(ROUTER_APP_PATHS.MORE)}
                     >
                         {t("more")}
                     </button>

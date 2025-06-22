@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import {deleteDocument, listDocuments, openDocument} from "../../../Services/DocumentService";
+import {deleteDocument, listAllDocuments, openDocument} from "../../../Services/DocumentService";
 import {Loading} from "../../../Components/Loading/Loading";
 import {Document} from "../../../Models/Document";
 import {ROUTER_APP_PATHS} from "../../../Constants/Routes";
@@ -15,7 +15,7 @@ export function DocumentsList() {
   const navigate = useNavigate()
   const { isPending, error, data, refetch } = useQuery<Document[]>({
     queryKey: ['documentsList '],
-    queryFn: async () => await listDocuments()
+    queryFn: async () => await listAllDocuments()
   })
 
   const removeDocument = async (id: string) => {
@@ -39,7 +39,7 @@ export function DocumentsList() {
               key={it.id}
             >
               <div
-                className={`w-full flex px-8 py-4 rounded-lg shadow-xl cursor-pointer bg-white hover:bg-opacity-80`}
+                className={`w-full flex px-8 py-4 rounded-lg shadow-xl cursor-pointer  hover:bg-opacity-80 ${(it.privateFile? 'bg-gray-400' : 'bg-white')}`}
                 onClick={() => openDocument(it.id)}
               >
                 <p className="font-bold w-1/2">{it.name}</p>

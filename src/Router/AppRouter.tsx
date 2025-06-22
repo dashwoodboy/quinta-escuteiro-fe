@@ -23,6 +23,7 @@ import {useUser} from "../Providers/UserProvider";
 import {Documents} from "../Pages/Documents/Documents";
 import {DocumentsList} from "../Pages/Configuration/DocumentsList/DocumentsList";
 import {DocumentAdd} from "../Pages/Configuration/DocumentsList/DocumentAdd";
+import {More} from "../Pages/More/More";
 
 export const ColorContext = createContext<Colors>(Colors.LOBITOS);
 
@@ -63,6 +64,10 @@ function AppRouter() {
                         <Route
                             path={ROUTER_APP_PATHS.DOCUMENTS}
                             element={<Documents />}
+                        />
+                        <Route
+                          path={ROUTER_APP_PATHS.MORE}
+                          element={<More />}
                         />
                         <Route
                           path={ROUTER_APP_PATHS.LOGIN}

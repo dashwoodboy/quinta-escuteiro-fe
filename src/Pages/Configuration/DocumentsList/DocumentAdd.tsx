@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import React, {useEffect, useState} from "react";
-import {ValidationError} from "yup";
+import {boolean, ValidationError} from "yup";
 import {useTranslation} from "react-i18next";
 import {Input} from "../../../Components/Input/Input";
 import {InputSizes} from "../../../Components/utils/InputSizes";
@@ -16,9 +16,9 @@ import {uploadDocument} from "../../../Services/DocumentService";
 
 export function DocumentAdd() {
 
-
   const [inputValues, setInputValues] = useState<DocumentInput>({
-    file: null
+    file: null,
+    privateFile: false
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({})
   const [uploading, setUploading] = useState(false)
@@ -42,7 +42,7 @@ export function DocumentAdd() {
       }
       setUploading(true)
 
-      await uploadDocument(inputValues.file)
+      await uploadDocument(inputValues.file, inputValues.privateFile)
       setUploading(false)
       navigate(ROUTER_APP_PATHS.DOCUMENTSLIST)
 
@@ -59,7 +59,6 @@ export function DocumentAdd() {
     }
   }
 
-
   return (
     <div className="flex h-full w-full overflow-hidden">
       <div className="flex flex-col w-1/2 pl-4 pr-4 py-4">
@@ -67,7 +66,18 @@ export function DocumentAdd() {
           (
             <div className="h-full max-h-full overflow-y-auto scrollbar">
             <div>
-              <div className="flex flex-wrap pt-2 px-4 justify-between gap-y-8">
+              <div className="flex flex-col flex-wrap pt-2 px-4 justify-between gap-y-8">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="option1"
+                    name="option1"
+                    value="yes"
+                    className="mr-4"
+                    onClick={() => setInputValues(prev => ({...prev, privateFile: !prev.privateFile}))}
+                  />
+                  <label htmlFor="option1">{t('checkBox')}</label>
+                </div>
                 <FileInput
                   selected={inputValues.file !== null}
                   label={t("document")}
