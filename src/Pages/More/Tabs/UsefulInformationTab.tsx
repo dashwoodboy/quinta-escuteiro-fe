@@ -11,19 +11,19 @@ export function UsefulInformationTab() {
 
 	return (
 		<div className="w-full h-full flex">
-			<div className="w-full md:w-1/2 m-8  mb-12 ">
+			<div className="w-full md:w-1/2 md:m-8 m-2 mb-12 ">
 				<div className="w-full h-1/3 flex justify-between pt-8 items-center  rounded-tr-2xl">
-					<div className="pl-8 pb-8 pr-8">
+					<div className="md:pl-8 pb-8 pr-8">
 						<p className="font-bold text-2xl text-white">{t("mass")}</p>
 						<p className="text-white">{t("mass_info")} <a className="whitespace-nowrap font-bold hover:text-secondary" href="https://www.leiria-fatima.pt/calendar/missas-batalha/">Diocese Leiria-Fátima</a></p>
 					</div>
 					<div>
-						<img className="rounded-2xl h-40" src={cross} alt="church"/>
+						<img className="rounded-2xl md:h-40" src={cross} alt="church"/>
 					</div>
 				</div>
 				<div className="w-full h-1/3 flex items-center ">
-					<div className="pl-8">
-						<img className="rounded-2xl h-40 " src={bread} alt="church"/>
+					<div className="md:pl-8">
+						<img className="rounded-2xl md:h-40 md:w-full w-24" src={bread} alt="church"/>
 					</div>
 					<div className="pl-8 pb-8">
 						<p className="font-bold text-2xl text-white">{t('baker')}</p>
@@ -32,12 +32,12 @@ export function UsefulInformationTab() {
 					</div>
 				</div>
 				<div className="w-full h-1/3 flex justify-between items-center">
-					<div className="pl-8 pb-8 pr-8 w-3/4">
+					<div className="md:pl-8 pb-8 pr-8 w-3/4">
 						<p className="font-bold text-2xl text-white">{t('public_transport')}</p>
 						<p className="text-white">{t('public_transport_info')} <a className="whitespace-nowrap font-bold hover:text-secondary" href="http://www.girabatalha.pt/">GIRA Batalha</a></p>
 					</div>
 					<div>
-						<img className="rounded-2xl h-40" src={transportation} alt="church"/>
+						<img className="rounded-2xl md:h-40 md:w-full w-24" src={transportation} alt="church"/>
 					</div>
 				</div>
 			</div>

@@ -74,5 +74,5 @@ export function QEMap({route, routeColor, destinationMarker}: MapInformation) {
 		};
 	}, [destinationMarker]);
 
-	return <div ref={mapContainer} className="w-2/3 h-full rounded-lg"/>;
+	return <div ref={mapContainer} className="md:w-2/3 w-full md:h-full h-2/3 rounded-lg"/>;
 }

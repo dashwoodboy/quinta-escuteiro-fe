@@ -11,13 +11,13 @@ export function PlacesTab(){
 
 	return (
 
-		<div className="w-full h-full flex">
+		<div className="w-full h-full md:flex-row flex-col flex">
 			<QEMap
 				route={markers[activeMarker].route}
 				routeColor="#0D6054"
 				destinationMarker={markers[activeMarker].marker}
 			/>
-			<div className="flex flex-col p-4 w-1/3 h-full">
+			<div className="flex flex-col p-4 w-full md:w-1/3 h-full">
 				<h1 className="font-bold text-white text-3xl mb-4">{t("useful_places")}</h1>
 				<div className="rounded-lg bg-white bg-opacity-60 h-full w-full ">
 					{

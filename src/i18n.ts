@@ -289,6 +289,7 @@ i18n.use(initReactI18next).init({
                 useful_places: "Locais Úteis",
                 Market: "Supermercado",
                 Church: "Igreja",
+                mass: "Missa",
                 mass_info: "Os horários das celebrações estão disponiveis em:",
                 baker: "Padeiro",
                 baker_info: "Contacto do padeiro mais próximo:",
