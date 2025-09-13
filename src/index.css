@@ -83,3 +83,20 @@ input[type=file]::file-selector-button {
     font-weight: bold;
 }
 
+/* Ensure list items display bullets */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  list-style-position: outside;
+  margin-bottom: 0.25rem;
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+ol li {
+  list-style-type: decimal;
+}
