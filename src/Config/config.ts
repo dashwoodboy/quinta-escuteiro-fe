@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyBWM_8NXezSy9-54p-sZVyP0FkZHTuzSZ8",
-  authDomain: "quintaescuteiros.firebaseapp.com",
-  projectId: "quintaescuteiros",
-  storageBucket: "quintaescuteiros.firebasestorage.app",
-  messagingSenderId: "200501571941",
-  appId: "1:200501571941:web:67ef4e63de068114ee718c",
-  measurementId: "G-BNSFRGM67L"
+  apiKey: "AIzaSyBKwqmBzUK6VDGzpVfCsJBVeL45xuO2-K4",
+  authDomain: "quintascouts.firebaseapp.com",
+  projectId: "quintascouts",
+  storageBucket: "quintascouts.firebasestorage.app",
+  messagingSenderId: "647283741258",
+  appId: "1:647283741258:web:0ade6726e4c57bb2558cb3",
+  measurementId: "G-TGGKQ7XLC1"
 };
