@@ -7,7 +7,7 @@ import {S3CONSTANTS} from "../Constants/S3Constants";
 export const s3 = new AWS.S3({
   accessKeyId: '86pM9OQpSjvpSIbHweUu',
   secretAccessKey: 'unNWt42KjojxK2KhZnEl0lNCevgzKQ5mPhnNaLqA',
-  endpoint: new AWS.Endpoint('https://daplstorage.zapto.org:9000'), // Replace with your MinIO endpoint
+  endpoint: new AWS.Endpoint('https://daplstorage.com:9000'), // Replace with your MinIO endpoint
   s3ForcePathStyle: true, // Necessary for MinIO compatibility
   sslEnabled: true,
   signatureVersion: 'v4',
