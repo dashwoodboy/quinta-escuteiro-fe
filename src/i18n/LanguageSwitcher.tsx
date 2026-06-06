@@ -40,9 +40,13 @@ export function LanguageSwitcher({ className = '', variant = 'header' }: Props) 
     }
     const cr = container.getBoundingClientRect();
     const br = btn.getBoundingClientRect();
+    const cs = getComputedStyle(container);
+    const borderLeft = parseFloat(cs.borderLeftWidth) || 0;
+    const borderTop = parseFloat(cs.borderTopWidth) || 0;
+    // Absolute `left`/`top` are from the padding edge; rects use the border box.
     setThumb({
-      left: br.left - cr.left,
-      top: br.top - cr.top,
+      left: br.left - cr.left - borderLeft,
+      top: br.top - cr.top - borderTop,
       width: br.width,
       height: br.height,
     });
