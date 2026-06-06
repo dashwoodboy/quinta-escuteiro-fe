@@ -29,4 +29,4 @@ jobs:
           server: leiriafatima.escutismo.pt
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: build/
+          local-dir: dist/
