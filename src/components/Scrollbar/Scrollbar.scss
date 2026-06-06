@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+
+.scrollbar-overlay {
+  position: fixed;
+  inset: 0 4px 0 auto;
+  width: 6px;
+  pointer-events: none;
+  z-index: 90;
+
+  &__thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $green-800;
+    border-radius: 999px;
+    will-change: transform;
+  }
+}

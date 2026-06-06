@@ -1,0 +1,100 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.reservations {
+  background: linear-gradient(180deg, $white 0%, $cream 100%);
+
+  .section-head {
+    margin-bottom: 2.5rem;
+
+    .section-label {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: normal;
+      text-transform: none;
+      color: $green-900;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: $font;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: $green-600;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  &__panel {
+    background: $white;
+    border-radius: $radius-lg;
+    box-shadow: $shadow;
+    overflow: hidden;
+    border: 1px solid rgba($green-800, 0.1);
+  }
+
+  &__panel-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, $green-900 0%, $green-800 100%);
+    color: $white;
+
+    h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+  }
+
+  &__panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  &__open-link {
+    font-size: 0.85rem;
+    padding: 0.55rem 1rem;
+  }
+
+  &__form-body {
+    padding: 1.75rem;
+
+    @include from($bp-md) {
+      padding: 2rem 2.25rem;
+    }
+  }
+
+  &__iframe-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    border-radius: $radius;
+    overflow: hidden;
+    border: 1px solid rgba($green-800, 0.12);
+    background: $cream;
+  }
+
+  &__iframe {
+    display: block;
+    width: 100%;
+    min-height: 75vh;
+    height: 1200px;
+    border: 0;
+    background: $white;
+  }
+}
