@@ -9990,3 +9990,6 @@ node_modules/@types/react-icons/fa/print.d.ts
 node_modules/@types/react-icons/fa/product-hunt.d.ts
 node_modules/@types/react-icons/fa/puzzle-piece.d.ts
 node_modules/@types/react-icons/fa/qq.d.ts
+/node_modules
+/dist
+/dist
