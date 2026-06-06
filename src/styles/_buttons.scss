@@ -1,0 +1,52 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+
+  @include focus-ring;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &--primary {
+    background: $green-800;
+    color: $white;
+
+    &:hover {
+      background: $green-900;
+    }
+  }
+
+  &--ghost {
+    color: $white;
+    background: rgba($white, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba($white, 0.35);
+    box-shadow: 0 8px 32px rgba($green-950, 0.35);
+    transition: background 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+
+    &:hover {
+      background: rgba($white, 0.18);
+      border-color: rgba($white, 0.55);
+      box-shadow: 0 12px 40px rgba($green-950, 0.45);
+    }
+  }
+
+  &--lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}

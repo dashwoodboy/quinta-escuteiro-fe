@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+:root {
+  --green-950: #{$green-950};
+  --green-900: #{$green-900};
+  --green-800: #{$green-800};
+  --green-600: #{$green-600};
+  --green-400: #{$green-400};
+  --gold: #{$gold};
+  --gold-light: #{$gold-light};
+  --cream: #{$cream};
+  --white: #{$white};
+  --text: #{$text};
+  --text-muted: #{$text-muted};
+  --radius: #{$radius};
+  --radius-lg: #{$radius-lg};
+  --shadow: #{$shadow};
+  --font: #{$font};
+  --font-display: #{$font-display};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* Espaço para o header fixo em links com âncora */
+  scroll-padding-top: 5.5rem;
+  background-color: $cream;
+}
+
+body {
+  font-family: $font;
+  color: $text;
+  background: $cream;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: $green-800;
+  text-decoration: none;
+}

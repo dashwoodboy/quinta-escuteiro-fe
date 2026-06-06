@@ -1,0 +1,10 @@
+export { Header } from './Header';
+export { Hero } from './Hero';
+export { About } from './About';
+export { Activities } from './Activities';
+export { ActivityCard } from './ActivityCard';
+export { ActivityModal } from './ActivityModal';
+export { Reservations } from './Reservations';
+export { Contact } from './Contact';
+export { Footer } from './Footer';
+export { Scrollbar } from './Scrollbar';

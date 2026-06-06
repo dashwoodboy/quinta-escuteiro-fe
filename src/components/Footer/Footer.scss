@@ -1,0 +1,59 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background: $green-950;
+  color: rgba($white, 0.7);
+  padding: 2.5rem 0;
+  font-size: 0.85rem;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $white;
+
+    img {
+      width: 48px;
+      height: auto;
+      max-height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    strong {
+      display: block;
+    }
+
+    p {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+  }
+
+  &__regional {
+    display: block;
+    line-height: 0;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    img {
+      width: auto;
+      height: 72px;
+      max-width: 200px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+  }
+}

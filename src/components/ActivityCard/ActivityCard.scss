@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+
+.activity-card {
+  background: $white;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba($green-950, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+  text-align: left;
+
+  &:focus-visible {
+    outline: 2px solid $green-600;
+    outline-offset: 3px;
+  }
+
+  &:hover {
+    box-shadow: $shadow;
+
+    .activity-card__media img {
+      transform: scale(1.08);
+    }
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 2;
+      max-width: calc(100% - 2rem);
+      white-space: normal;
+      line-height: 1.25;
+      text-align: left;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($green-950, 0.6), transparent 50%);
+  }
+
+  &__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: $white;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    z-index: 2;
+  }
+
+  &__body {
+    padding: 1.25rem 1.5rem 1.5rem;
+
+    h3 {
+      font-size: 1.2rem;
+      margin: 0.35rem 0 0.5rem;
+      color: $green-900;
+      line-height: 1.3;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: $text-muted;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  &__category {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: $green-600;
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    font-size: 0.8rem;
+    color: $text-muted;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 700;
+    color: $green-800;
+    transition: gap 0.2s;
+  }
+
+  &:hover &__cta {
+    gap: 0.6rem;
+  }
+}

@@ -1,0 +1,182 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba($green-950, 0.75) 0%,
+      rgba($green-900, 0.55) 50%,
+      rgba($green-950, 0.85) 100%
+    );
+  }
+
+  &__grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $white;
+    padding: 8rem 0 7rem;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba($white, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba($white, 0.2);
+    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  &__badge-logo {
+    width: 40px;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    color: $gold-light;
+  }
+
+  &__lead {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 520px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($white, 0.15);
+
+    @include from($bp-sm) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__stat {
+    strong {
+      display: block;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: $gold;
+    }
+
+    span {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__scroll-wrap {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  &__scroll {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.6rem 0.6rem 1.35rem;
+    color: $white;
+    text-decoration: none;
+    background: rgba($white, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba($white, 0.35);
+    border-radius: 999px;
+    box-shadow: 0 8px 32px rgba($green-950, 0.35);
+    transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+
+    &:hover {
+      background: rgba($white, 0.18);
+      border-color: rgba($white, 0.55);
+      box-shadow: 0 12px 40px rgba($green-950, 0.45);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $green-400;
+      outline-offset: 4px;
+    }
+  }
+
+  &__scroll-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  &__scroll-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $green-800;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

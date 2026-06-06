@@ -1,0 +1,244 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-header;
+  padding: 1rem 0;
+  transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+
+  /** Por cima do painel em portal (z-index do sheet abaixo). */
+  &--menu-open {
+    z-index: 1001;
+  }
+
+  &--scrolled {
+    background: rgba($green-950, 0.92);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    padding: 0.6rem 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: $white;
+  }
+
+  &__logo {
+    width: 56px;
+    height: auto;
+    max-height: 56px;
+    object-fit: contain;
+    border-radius: $radius;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: none;
+
+    @include from($bp-md) {
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__nav-main,
+  &__nav-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    color: rgba($white, 0.85);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $gold-light;
+    }
+  }
+
+  &__cta {
+    display: none;
+
+    @include until($bp-nav) {
+      display: inline-flex;
+    }
+
+    @include from($bp-nav-min) {
+      display: inline-flex;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+
+    @include focus-ring;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: $white;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.2s;
+    }
+
+    &--open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &--open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &--open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    @include until($bp-nav) {
+      display: flex;
+    }
+  }
+
+  @include until($bp-nav) {
+    &__nav {
+      display: flex;
+    }
+
+    /**
+     * Painel mobile em portal (body): não pode ficar dentro de motion.header
+     * com transform — o position:fixed ficava limitado ao cabeçalho.
+     */
+    &__nav--sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      width: 100%;
+      box-sizing: border-box;
+      min-height: 100dvh;
+      min-height: 100vh;
+      padding: max(5.5rem, calc(env(safe-area-inset-top, 0px) + 4.5rem)) clamp(1.25rem, 5vw, 2rem)
+        max(1.25rem, env(safe-area-inset-bottom, 0px));
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      background: rgba($green-950, 0.98);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+
+      &.header__nav--open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .header__nav-main {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        width: min(22rem, 100%);
+        margin-inline: auto;
+        min-height: 0;
+        gap: 0.35rem;
+      }
+
+      .header__nav-footer {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: min(22rem, 100%);
+        margin-inline: auto;
+        gap: 0.85rem;
+        padding-top: 1rem;
+        padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+      }
+
+      .header__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 1.05rem 1.25rem;
+        font-size: clamp(1.1rem, 3.8vw, 1.35rem);
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        color: rgba($white, 0.95);
+        border-radius: $radius;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover,
+        &:focus-visible {
+          color: $gold-light;
+          background: rgba($white, 0.06);
+        }
+      }
+
+      .header__nav-footer .lang-switch {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.35rem;
+        justify-content: space-between;
+        gap: 0.35rem;
+      }
+
+      .header__nav-footer .lang-switch__btn {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0.65rem 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .header__nav-footer .header__cta {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 0;
+        padding: 1rem 1.5rem;
+        justify-content: center;
+        font-size: 1.05rem;
+      }
+    }
+  }
+}

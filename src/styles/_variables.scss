@@ -1,0 +1,33 @@
+// Cores
+$green-950: #0a1f14;
+$green-900: #1a4d2e;
+$green-800: #2d6a4f;
+$green-600: #40916c;
+$green-400: #74c69d;
+$gold: #d4a574;
+$gold-light: #f0d9b5;
+$cream: #f8f6f1;
+$white: #ffffff;
+$text: #1a2420;
+$text-muted: #5c6b63;
+
+// Tipografia
+$font: 'Outfit', system-ui, sans-serif;
+$font-display: 'Playfair Display', Georgia, serif;
+
+// Espaçamento e forma
+$radius: 16px;
+$radius-lg: 24px;
+$shadow: 0 20px 60px rgba($green-950, 0.15);
+
+// Breakpoints
+$bp-sm: 500px;
+$bp-md: 640px;
+$bp-nav: 768px;
+$bp-nav-min: 769px;
+$bp-contact: 800px;
+$bp-about: 900px;
+
+// Z-index
+$z-header: 100;
+$z-modal: 200;
