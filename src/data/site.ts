@@ -3,7 +3,7 @@ export const site = {
   tagline: 'Centro Escutista',
   location: 'Batalha — Portugal',
   address: 'Rua da Marialinha, 744 — Quinta do Sobrado, 2440-192 Batalha',
-  phone: '917 258 452',
+  phone: '965 168 546',
   email: 'cr.leiria@escutismo.pt',
   website: 'https://quintadoescuteiro.escutismo.pt',
   facebook: 'https://www.facebook.com/cneleiria',
