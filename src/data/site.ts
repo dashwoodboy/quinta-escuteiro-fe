@@ -4,7 +4,7 @@ export const site = {
   location: 'Batalha — Portugal',
   address: 'Rua da Marialinha, 744 — Quinta do Sobrado, 2440-192 Batalha',
   phone: '965 168 546',
-  email: 'quintadoescuteiro@escutismo.pt',
+  email: 'quintadoescuteiro.leiriafatima@escutismo.pt',
   website: 'https://quintadoescuteiro.escutismo.pt',
   facebook: 'https://www.facebook.com/cneleiria',
   mapQuery: 'Quinta do Escuteiro Batalha',
